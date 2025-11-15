@@ -103,7 +103,7 @@ export WCG_VERIFICATION_CODE="your_verification_code"
 pip install requests
 
 # Run script
-python scripts/fetch_wcg_stats.py
+python scripts/fetch_stats.py
 ```
 
 ---
