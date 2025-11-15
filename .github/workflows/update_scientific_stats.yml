@@ -39,7 +39,7 @@ jobs:
           WCG_VERIFICATION_CODE: ${{ secrets.WCG_VERIFICATION_CODE }}
           FAH_USERNAME: ${{ secrets.FAH_USERNAME }}
         run: |
-          python scripts/fetch_wcg_stats.py
+          python scripts/fetch_stats.py
       
       - name: 📊 Commit Updated Stats
         run: |
