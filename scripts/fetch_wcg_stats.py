@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-World Community Grid Stats Fetcher
-Fetches live statistics from WCG API and generates markdown reports
+World Community Grid Stats Fetcher - VERSION B (IMPRESSIVE MODE)
+Fetches live statistics from WCG API and generates HR-friendly, impact-focused reports
 """
 
 import requests
@@ -29,12 +29,12 @@ def fetch_wcg_stats(member_name: str, verification_code: str) -> Dict[str, Any]:
         response.raise_for_status()
         
         data = response.json()
-        print(f"✅ Successfully fetched {len(data.get('results', []))} results")
+        print(f" Successfully fetched {len(data.get('results', []))} results")
         
         return data
         
     except requests.exceptions.RequestException as e:
-        print(f"❌ Error fetching WCG data: {e}")
+        print(f" Error fetching WCG data: {e}")
         return {}
 
 
@@ -48,6 +48,8 @@ def calculate_statistics(data: Dict[str, Any]) -> Dict[str, Any]:
             'total_results': 0,
             'total_points': 0,
             'total_runtime_hours': 0,
+            'total_runtime_days': 0,
+            'cpu_years': 0,
             'last_updated': datetime.now().isoformat()
         }
     
@@ -56,8 +58,10 @@ def calculate_statistics(data: Dict[str, Any]) -> Dict[str, Any]:
     total_points = sum(r.get('points', 0) for r in results)
     total_runtime = sum(r.get('runTime', 0) for r in results)
     
-    # Convert runtime to hours
+    # Convert runtime to different units
     total_runtime_hours = total_runtime / 3600
+    total_runtime_days = total_runtime_hours / 24
+    cpu_years = total_runtime_hours / 8760  # 1 year = 8760 hours
     
     # Get latest result timestamp
     latest_result = max(results, key=lambda r: r.get('sentTime', 0))
@@ -66,7 +70,8 @@ def calculate_statistics(data: Dict[str, Any]) -> Dict[str, Any]:
         'total_results': total_results,
         'total_points': total_points,
         'total_runtime_hours': round(total_runtime_hours, 2),
-        'total_runtime_days': round(total_runtime_hours / 24, 2),
+        'total_runtime_days': round(total_runtime_days, 2),
+        'cpu_years': round(cpu_years, 3),
         'latest_result_date': latest_result.get('sentTime', 'N/A'),
         'last_updated': datetime.now().isoformat(),
         'api_limit_note': f"Showing last {total_results} results (API limit: 250)"
@@ -76,33 +81,76 @@ def calculate_statistics(data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def generate_readme_badge_section(stats: Dict[str, Any], member_name: str) -> str:
-    """Generate README section with badges and stats"""
+    """Generate README section with impressive badges and impact metrics"""
     
     last_updated = datetime.fromisoformat(stats['last_updated']).strftime('%Y-%m-%d %H:%M UTC')
     
+    # Format CPU years for display
+    cpu_years_display = stats['cpu_years']
+    if cpu_years_display < 0.01:
+        cpu_years_str = f"{cpu_years_display:.4f}"
+    elif cpu_years_display < 1:
+        cpu_years_str = f"{cpu_years_display:.2f}"
+    else:
+        cpu_years_str = f"{cpu_years_display:.1f}"
+    
     readme = f"""## 🧬 Scientific Computing Contributions
 
-I contribute idle computing power to [World Community Grid](https://www.worldcommunitygrid.org/) for medical research projects (cancer, COVID-19, microbiome research).
+I contribute idle computing power to [World Community Grid](https://www.worldcommunitygrid.org/) for medical research projects tackling humanity's biggest health challenges.
 
-### 📊 Live Statistics
+### 📊 Live Impact Metrics
 
-![WCG Results](https://img.shields.io/badge/Results_Returned-{stats['total_results']:,}-blue?style=for-the-badge&logo=gridsome)
+![CPU Years](https://img.shields.io/badge/CPU_Years-{cpu_years_str}-purple?style=for-the-badge&logo=cpanel)
+![Medical Tasks](https://img.shields.io/badge/Medical_Tasks-{stats['total_results']:,}-red?style=for-the-badge&logo=dna)
 ![WCG Points](https://img.shields.io/badge/Points-{stats['total_points']:,}-green?style=for-the-badge&logo=ethereum)
-![Runtime](https://img.shields.io/badge/Runtime-{stats['total_runtime_days']:.0f}_days-orange?style=for-the-badge&logo=clockify)
+![Computing Hours](https://img.shields.io/badge/Hours-{stats['total_runtime_hours']:,.0f}-orange?style=for-the-badge&logo=clockify)
+
+### 💡 What This Means
+
+**My Computing Contribution:**
+- ⚡ **{cpu_years_str} CPU-Years** dedicated to medical research
+- 🧬 **{stats['total_results']:,} research calculations** completed for scientific projects
+- ⏱️ **{stats['total_runtime_hours']:,.0f}+ hours** of processing power donated
+- 📅 **{stats['total_runtime_days']:.0f} days** of continuous 24/7 computing
+
+**Real-World Equivalent:**
+> This is equivalent to running a high-performance workstation non-stop, 24/7, for **{stats['total_runtime_days']:.0f} consecutive days** dedicated solely to medical research calculations.
 
 **🔄 Last Updated:** `{last_updated}`  
 **👤 Member Profile:** [View on WCG](https://www.worldcommunitygrid.org/stat/viewMemberInfo.do?userName={member_name})
 
 ---
 
-### 💡 What is World Community Grid?
+### 🎯 Research Impact Areas
 
-World Community Grid enables anyone to donate their device's computing power to help scientists solve humanity's biggest problems in health and sustainability.
+My computing contributions directly support breakthrough research in:
 
-**Active Research Projects:**
-- 🧬 **Microbiome Immunity Project** - Understanding immune system interactions
-- 🦠 **OpenPandemics COVID-19** - Drug discovery for coronaviruses  
-- ⚕️ **Mapping Cancer Markers** - Cancer treatment research
+#### 🦠 **Disease Treatment & Drug Discovery**
+- **OpenPandemics - COVID-19**: Screening billions of chemical compounds to discover potential treatments for COVID-19 and future pandemics
+- **Mapping Cancer Markers**: Identifying cancer markers in cells to develop personalized cancer treatments
+
+#### 🧬 **Biological & Medical Research**
+- **Microbiome Immunity Project**: Understanding how the human microbiome interacts with the immune system to fight diseases
+- Accelerating research that would take decades on single computers into months through distributed computing
+
+#### 💊 **The Bigger Picture**
+Every calculation I process helps scientists:
+- Test potential drug candidates faster
+- Understand disease mechanisms better  
+- Develop more effective treatments
+- Advance personalized medicine
+
+---
+
+### 🌍 What is World Community Grid?
+
+World Community Grid brings together volunteers from around the world to create the largest non-profit computing grid benefiting humanity. By donating my computer's idle processing power, I help scientists tackle some of the world's most pressing problems in health and sustainability.
+
+**How it works:**
+1. 💻 I donate spare CPU cycles when my computer is idle
+2. 🔬 Scientists use this power for complex medical calculations
+3. 📊 Research that would take years completes in months
+4. 💊 Results accelerate drug discovery and disease treatment
 
 ---
 
@@ -119,7 +167,7 @@ def save_data(stats: Dict[str, Any], output_file: str = 'data/wcg-stats.json'):
     with open(output_file, 'w') as f:
         json.dump(stats, f, indent=2)
     
-    print(f"✅ Saved statistics to {output_file}")
+    print(f" Saved statistics to {output_file}")
 
 
 def update_readme(readme_content: str, readme_file: str = 'README.md'):
@@ -131,7 +179,7 @@ def update_readme(readme_content: str, readme_file: str = 'README.md'):
     
     # Read existing README or create new
     if os.path.exists(readme_file):
-        with open(readme_file, 'r') as f:
+        with open(readme_file, 'r', encoding='utf-8') as f:
             existing_readme = f.read()
         
         # Check if markers exist
@@ -145,7 +193,13 @@ def update_readme(readme_content: str, readme_file: str = 'README.md'):
             new_readme = f"{existing_readme}\n\n{start_marker}\n{readme_content}\n{end_marker}\n"
     else:
         # Create new README
-        new_readme = f"""# Scientific Computing Dashboard
+        new_readme = f"""# 🧬 Scientific Computing Dashboard
+
+> **Automated tracking of my contributions to scientific research through distributed computing**
+
+This repository showcases my ongoing contributions to **World Community Grid** - a humanitarian initiative that uses donated computing power from devices worldwide to advance cutting-edge scientific research in health and sustainability.
+
+---
 
 {start_marker}
 {readme_content}
@@ -153,22 +207,103 @@ def update_readme(readme_content: str, readme_file: str = 'README.md'):
 
 ## 🔧 Technical Implementation
 
-This dashboard is automatically updated daily via GitHub Actions. It fetches live statistics from the World Community Grid API and updates this README.
+This dashboard demonstrates practical DevOps and automation skills:
 
-**Tech Stack:**
-- Python 3.x for API calls
-- GitHub Actions for automation
-- WCG JSON API for data retrieval
+### Architecture
+```
+┌─────────────────┐
+│  WCG Public API │
+└────────┬────────┘
+         │ JSON
+         ▼
+┌─────────────────┐
+│ Python Script   │ ← Runs daily via GitHub Actions
+│ fetch_wcg_stats │
+└────────┬────────┘
+         │
+         ├─► data/wcg-stats.json (Live data)
+         └─► README.md (Auto-updated badges)
+```
+
+### Tech Stack
+- **Python 3.11** - API integration and data processing
+- **GitHub Actions** - Scheduled automation (cron: daily at 00:00 UTC)
+- **WCG JSON API** - Real-time statistics retrieval
+- **Markdown Badges** - Visual statistics display
+
+### Features
+ Fully automated daily updates  
+ No manual intervention required  
+ Live statistics from official WCG API  
+ Clean, professional presentation  
+ Production-ready error handling  
+ Impact-focused metrics for HR/recruiters
 
 ---
 
-**🤝 Want to contribute too?** Join World Community Grid: https://www.worldcommunitygrid.org/
+## 📁 Repository Structure
+
+```
+scientific-computing-dashboard/
+├── .github/workflows/
+│   └── update-wcg-stats.yml       # GitHub Action (scheduled daily)
+├── scripts/
+│   └── fetch_wcg_stats.py         # API fetching & processing
+├── data/
+│   └── wcg-stats.json             # Live statistics (auto-updated)
+├── README.md                       # This file (auto-updated)
+└── .gitignore
+```
+
+---
+
+## 🚀 How to Run Locally
+
+```bash
+# Clone repository
+git clone https://github.com/YOUR_USERNAME/scientific-computing-dashboard.git
+cd scientific-computing-dashboard
+
+# Set environment variables
+export WCG_MEMBER_NAME="your_wcg_username"
+export WCG_VERIFICATION_CODE="your_verification_code"
+
+# Install dependencies
+pip install requests
+
+# Run script
+python scripts/fetch_wcg_stats.py
+```
+
+---
+
+## 🤝 Join the Cause
+
+**Want to contribute to scientific research too?**
+
+1. Visit [World Community Grid](https://www.worldcommunitygrid.org/)
+2. Create a free account
+3. Download the BOINC client
+4. Select research projects you want to support
+5. Let your computer help save lives! 💙
+
+---
+
+## 📜 License
+
+This dashboard implementation is open source. Feel free to fork and adapt for your own WCG tracking!
+
+---
+
+**🔄 Last Repository Update:** See commit history  
+**🤖 Automated Updates:** Daily at 00:00 UTC via GitHub Actions
+
 """
     
-    with open(readme_file, 'w') as f:
+    with open(readme_file, 'w', encoding='utf-8') as f:
         f.write(new_readme)
     
-    print(f"✅ Updated {readme_file}")
+    print(f" Updated {readme_file}")
 
 
 def main():
@@ -179,16 +314,16 @@ def main():
     verification_code = os.environ.get('WCG_VERIFICATION_CODE')
     
     if not member_name or not verification_code:
-        print("❌ ERROR: WCG_MEMBER_NAME and WCG_VERIFICATION_CODE must be set as environment variables")
+        print(" ERROR: WCG_MEMBER_NAME and WCG_VERIFICATION_CODE must be set as environment variables")
         exit(1)
     
-    print("🚀 Starting WCG Stats Update...")
+    print("🚀 Starting WCG Stats Update (VERSION B - IMPRESSIVE MODE)...")
     
     # Fetch data from API
     data = fetch_wcg_stats(member_name, verification_code)
     
     if not data:
-        print("❌ No data received from API")
+        print(" No data received from API")
         exit(1)
     
     # Calculate statistics
@@ -203,10 +338,11 @@ def main():
     # Update README
     update_readme(readme_content)
     
-    print("✅ WCG Stats update completed successfully!")
+    print(" WCG Stats update completed successfully!")
     print(f"📊 Results: {stats['total_results']}")
     print(f"🎯 Points: {stats['total_points']:,}")
     print(f"⏱️  Runtime: {stats['total_runtime_days']:.2f} days")
+    print(f"⚡ CPU-Years: {stats['cpu_years']:.3f}")
 
 
 if __name__ == "__main__":
