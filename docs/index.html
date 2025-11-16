@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Computing Dashboard - World Community Grid</title>
+    <title>Scientific Computing Dashboard - BOINC • Folding@home • World Community Grid</title>
     <style>
         * {
             margin: 0;
@@ -159,10 +159,37 @@
         <div class="header">
             <h1>🧬 Scientific Computing Dashboard</h1>
             <p>Contributing to Medical Research Through Distributed Computing</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">33M+ BOINC Credits • 3.8M+ F@H Points • 7+ Years Active</p>
+        </div>
+
+        <!-- BOINC Stats Graphics Section -->
+        <div class="info-section" style="text-align: center;">
+            <h2>🔬 BOINC Network Contribution</h2>
+            <p style="margin-bottom: 30px;">Live statistics from 12+ simultaneous research projects</p>
+
+            <div style="margin: 30px 0;">
+                <img src="https://boincstats.com/signature/-1/user/38537905500/sig.png"
+                     alt="BOINC Combined Stats"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            </div>
+
+            <div style="margin: 30px 0;">
+                <img src="https://boincstats.com/signature/-1/user/38537905500/project/sig.png"
+                     alt="BOINC Projects Breakdown"
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            </div>
+
+            <p style="margin-top: 20px;">
+                <a href="https://boincstats.com/stats/-1/user/detail/38537905500"
+                   target="_blank"
+                   style="color: #667eea; text-decoration: none; font-weight: bold; font-size: 1.1em;">
+                    📊 View Full BOINC Profile →
+                </a>
+            </p>
         </div>
 
         <div id="loading" class="loading">
-            Loading live statistics from World Community Grid...
+            Loading live statistics from Folding@home and World Community Grid...
         </div>
 
         <div id="stats" style="display: none;">
@@ -197,34 +224,65 @@
             </div>
 
             <div class="info-section">
-                <h2>🌍 What is World Community Grid?</h2>
+                <h2>🌟 Multi-Platform Contribution</h2>
                 <p>
-                    World Community Grid (WCG) is a humanitarian computing grid that brings together 
-                    volunteers from around the world to create the largest non-profit computing grid 
-                    benefiting humanity. WCG is making technology available only to public and 
-                    not-for-profit organizations to use in critical research on problems affecting 
-                    the health and well-being of our planet.
-                </p>
-                <p>
-                    By donating my computer's idle processing power, I'm helping scientists tackle 
-                    some of humanity's most pressing challenges in health and sustainability.
+                    I contribute to three major distributed computing platforms, each focusing on
+                    different aspects of scientific research. Together, they represent over
+                    <strong>7 years of continuous contribution</strong> to global scientific advancement.
                 </p>
 
-                <h2 style="margin-top: 30px;">🔬 Active Research Projects</h2>
+                <h2 style="margin-top: 30px;">🔬 Active Research Platforms</h2>
                 <div class="projects">
                     <div class="project-card">
-                        <h3>🧬 Microbiome Immunity Project</h3>
-                        <p>Understanding how the human microbiome interacts with the immune system to develop better treatments for autoimmune diseases.</p>
+                        <h3>🔬 BOINC Network</h3>
+                        <p><strong>33M+ Credits</strong> across 12+ projects including Collatz Conjecture,
+                        GPUGRID drug discovery, Rosetta@home protein folding, PrimeGrid mathematics,
+                        and MilkyWay@home astronomy.</p>
                     </div>
 
                     <div class="project-card">
-                        <h3>🦠 OpenPandemics - COVID-19</h3>
-                        <p>Screening billions of potential drug candidates to find treatments for COVID-19 and future pandemics.</p>
+                        <h3>💻 Folding@home</h3>
+                        <p><strong>3.8M+ Points</strong> contributing to protein folding research for
+                        Alzheimer's, Parkinson's, COVID-19, and cancer treatment discovery.</p>
                     </div>
 
                     <div class="project-card">
-                        <h3>⚕️ Mapping Cancer Markers</h3>
-                        <p>Identifying cancer markers and developing personalized treatment strategies to improve patient outcomes.</p>
+                        <h3>🌍 World Community Grid</h3>
+                        <p>Active contributor to OpenPandemics COVID-19 research, Mapping Cancer Markers,
+                        and Microbiome Immunity Project.</p>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 40px;">📊 Research Areas Covered</h2>
+                <div class="projects">
+                    <div class="project-card">
+                        <h3>💊 Drug Discovery</h3>
+                        <p>GPUGRID molecular dynamics, SiDock@home drug docking, OpenPandemics screening</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🧬 Protein Research</h3>
+                        <p>Rosetta@home structure prediction, Folding@home protein folding dynamics</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🔢 Mathematics</h3>
+                        <p>Collatz Conjecture, PrimeGrid prime numbers, Amicable Numbers theory</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🔭 Astronomy</h3>
+                        <p>MilkyWay@home galaxy modeling, Asteroids@home shape modeling</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>⚕️ Cancer Research</h3>
+                        <p>Mapping Cancer Markers, molecular analysis for treatment strategies</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🧠 Neurological Disorders</h3>
+                        <p>Alzheimer's and Parkinson's disease protein folding research</p>
                     </div>
                 </div>
             </div>
@@ -232,17 +290,23 @@
             <div class="info-section">
                 <h2>🔧 Technical Implementation</h2>
                 <p>
-                    This dashboard is fully automated and requires <strong>zero manual intervention</strong>. 
+                    This dashboard is fully automated and requires <strong>zero manual intervention</strong>.
                     It demonstrates practical DevOps and automation skills:
                 </p>
                 <ul style="margin-left: 30px; margin-top: 15px; line-height: 2;">
-                    <li><strong>Python 3.11</strong> - API integration and data processing</li>
-                    <li><strong>GitHub Actions</strong> - Scheduled daily automation</li>
-                    <li><strong>WCG JSON API</strong> - Real-time statistics retrieval</li>
-                    <li><strong>GitHub Pages</strong> - Static site hosting</li>
+                    <li><strong>Python 3.11</strong> - Multi-platform API integration and data processing</li>
+                    <li><strong>GitHub Actions</strong> - Scheduled daily automation (cron: 00:00 UTC)</li>
+                    <li><strong>Folding@home API</strong> - Real-time F@H statistics retrieval</li>
+                    <li><strong>World Community Grid API</strong> - WCG results processing</li>
+                    <li><strong>BOINCStats Integration</strong> - Live graphics embedding from 12+ projects</li>
+                    <li><strong>GitHub Pages</strong> - Static site hosting with auto-updates</li>
                 </ul>
                 <p style="margin-top: 20px;">
-                    View the source code and implementation details on 
+                    <strong>Architecture:</strong> Daily GitHub Actions workflow → Python fetches APIs →
+                    Updates README.md & JSON data → Auto-commits → GitHub Pages deploys
+                </p>
+                <p style="margin-top: 15px;">
+                    View the source code and implementation details on
                     <a href="https://github.com/YOUR_USERNAME/scientific-computing-dashboard" style="color: #667eea; text-decoration: none; font-weight: bold;">GitHub</a>
                 </p>
             </div>
@@ -250,8 +314,13 @@
 
         <div class="footer">
             <p>🤖 Automatically updated daily via GitHub Actions</p>
+            <p style="margin-top: 15px; font-size: 1.1em;">
+                <strong>Join the Scientific Computing Community:</strong>
+            </p>
             <p style="margin-top: 10px;">
-                <a href="https://www.worldcommunitygrid.org/" target="_blank" style="color: white;">Join World Community Grid →</a>
+                <a href="https://boinc.berkeley.edu/" target="_blank" style="color: white; margin: 0 15px;">🔬 BOINC</a> •
+                <a href="https://foldingathome.org/" target="_blank" style="color: white; margin: 0 15px;">💻 Folding@home</a> •
+                <a href="https://www.worldcommunitygrid.org/" target="_blank" style="color: white; margin: 0 15px;">🌍 World Community Grid</a>
             </p>
         </div>
     </div>
@@ -261,27 +330,27 @@
         async function loadStats() {
             try {
                 const response = await fetch('../data/wcg-stats.json');
-                
+
                 if (!response.ok) {
                     throw new Error('Failed to fetch statistics');
                 }
-                
+
                 const data = await response.json();
-                
+
                 // Update UI
                 document.getElementById('total-results').textContent = data.total_results.toLocaleString();
                 document.getElementById('total-points').textContent = data.total_points.toLocaleString();
                 document.getElementById('total-runtime').textContent = data.total_runtime_hours.toLocaleString() + ' h';
                 document.getElementById('days-active').textContent = Math.floor(data.total_runtime_days).toLocaleString();
-                
+
                 // Format last updated time
                 const lastUpdated = new Date(data.last_updated);
                 document.getElementById('update-time').textContent = lastUpdated.toLocaleString();
-                
+
                 // Show stats, hide loading
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('stats').style.display = 'block';
-                
+
             } catch (error) {
                 document.getElementById('loading').innerHTML = `
                     <div class="error">
