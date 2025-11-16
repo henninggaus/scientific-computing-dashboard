@@ -7,9 +7,77 @@ This repository showcases my ongoing contributions to **World Community Grid** -
 ---
 
 <!-- WCG_STATS_START -->
-## 📊 Statistics Loading...
+## 🧬 Scientific Computing Contributions
 
-*Statistics will be automatically updated daily via GitHub Actions*
+I contribute computing power to multiple research platforms for medical breakthroughs.
+
+**🔄 Last Updated:** `2025-11-16 00:14 UTC`
+
+---
+
+### 💻 Folding@home
+
+![F@H Score](https://img.shields.io/badge/Score-3,833,867-blue?style=for-the-badge&logo=bitcoin)
+![F@H Work Units](https://img.shields.io/badge/Work_Units-27-green?style=for-the-badge&logo=checkmarx)
+![F@H Rank](https://img.shields.io/badge/Rank-%23216,493-purple?style=for-the-badge&logo=rancher)
+
+**My Folding@home Contribution:**
+- 🎯 **3,833,867 Points** earned through protein folding calculations
+- ⚡ **27 Work Units** completed for disease research
+- 🏆 **Rank #216,493** out of 3,021,483 active contributors worldwide
+- 📊 **Top 92.8%** of all Folding@home volunteers
+
+**What I'm helping research:**
+- 🧬 Protein folding for Alzheimer's and Parkinson's disease
+- 🦠 COVID-19 and infectious disease treatments
+- ⚕️ Cancer research and drug discovery
+- 💊 Understanding protein misfolding diseases
+
+**Username:** `HenningSarrus`  
+**Profile:** [View on F@H Stats](https://stats.foldingathome.org/donor/HenningSarrus)
+
+---
+
+### 🌍 World Community Grid
+
+**Username:** `not_set`  
+**Status:** ⏳ Waiting for BOINC data...
+
+---
+
+### 🌟 Combined Impact
+
+By contributing to both platforms, I'm supporting a diverse range of critical medical research:
+
+**Research Areas:**
+- 🧬 Protein folding & structural biology
+- 🦠 Infectious disease treatment
+- ⚕️ Cancer research & drug discovery  
+- 🧠 Neurological disorders (Alzheimer's, Parkinson's)
+- 💊 Pharmaceutical development
+- 🔬 Computational biology
+
+**Why This Matters:**
+> Distributed computing allows researchers to run calculations that would take decades on single computers. By donating spare computing power, volunteers like me help accelerate scientific breakthroughs that save lives.
+
+---
+
+### 🔧 About This Dashboard
+
+This dashboard is fully automated:
+- 🤖 **GitHub Actions** fetch fresh data daily at 00:00 UTC
+- 🐍 **Python scripts** process APIs from both platforms
+- 📊 **Live statistics** update automatically
+- 🚀 **Zero manual intervention** required
+
+**Tech Stack:** Python 3.11, GitHub Actions, REST APIs, Markdown
+
+---
+
+**Want to contribute to science too?**
+- 💻 [Join Folding@home](https://foldingathome.org/)
+- 🌍 [Join World Community Grid](https://www.worldcommunitygrid.org/)
+
 
 <!-- WCG_STATS_END -->
 
