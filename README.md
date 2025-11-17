@@ -3,8 +3,7 @@
 > **7+ Years Contributing to Global Scientific Research Through Distributed Computing**
 
 [![BOINC](https://img.shields.io/badge/BOINC-33M+_Credits-blue?style=for-the-badge&logo=atom)](https://boincstats.com/stats/-1/user/detail/38537905500)
-[![Folding@home](https://img.shields.io/badge/Folding@home-3.8M_Points-green?style=for-the-badge&logo=moleculer)](https://foldingathome.org/)
-[![WCG](https://img.shields.io/badge/World_Community_Grid-Active-orange?style=for-the-badge&logo=ibm)](https://www.worldcommunitygrid.org/)
+[![Folding@home](https://img.shields.io/badge/Folding@home-3.8M+_Points-green?style=for-the-badge&logo=moleculer)](https://stats.foldingathome.org/donor/HenningSarrus)
 
 I contribute idle computing power across multiple platforms to accelerate scientific research in medicine, astronomy, mathematics, and physics.
 
@@ -13,9 +12,8 @@ I contribute idle computing power across multiple platforms to accelerate scient
 ## 🏆 Portfolio Overview
 
 **Total Contribution:**
-- ⚡ **33+ Million BOINC Credits** across 10+ global projects
+- ⚡ **33+ Million BOINC Credits** across 12+ global projects
 - 💻 **3.8+ Million Folding@home Points**
-- 🌍 **World Community Grid** active contributor
 - 🔬 **8.84 Quintillion** floating-point operations for science
 - 📅 **Active since 2018** - 7+ years of continuous contribution
 
@@ -38,130 +36,49 @@ I contribute to the Berkeley Open Infrastructure for Network Computing (BOINC), 
 
 ![BOINC Projects](https://boincstats.com/signature/-1/user/38537905500/project/sig.png)
 
-### Project Details:
+### Top Projects (Approximate Credits):
 
-| Project | Credits | Research Area | Active Since |
-|---------|---------|---------------|--------------|
-| **Collatz Conjecture** | 23,165,560 | 📐 Mathematical Research | - |
-| **GPUGRID** | 6,450,000 | 💊 Drug Discovery & Molecular Dynamics | Apr 2019 |
-| **Amicable Numbers** | 2,296,961 | 🔢 Number Theory & Mathematics | Oct 2019 |
-| **SiDock@home** | 482,797 | 🧬 Drug Docking Simulations | Apr 2025 |
-| **Rosetta@home** | 439,496 | 🧬 Protein Structure Prediction | Jun 2018 |
-| **PrimeGrid** | 224,437 | 🔢 Prime Number Research | Sep 2019 |
-| **MilkyWay@home** | 124,111 | 🌌 Milky Way Galaxy Modeling | Oct 2019 |
-| **yoyo@home** | 101,050 | 🧮 Various Mathematical Projects | Aug 2018 |
-| **Asteroids@home** | 75,840 | ☄️ Asteroid Shape Modeling | Aug 2018 |
-| **SETI@home** | 21,928 | 👽 Search for Extraterrestrial Intelligence | Aug 2018 |
-| **Ramanujan Machine** | 16,011 | 🔬 Mathematical Constants Discovery | Mar 2025 |
-| **Cosmology@Home** | 36 | 🌌 Cosmological Model Refinement | - |
+| Project | ~Credits | Research Area | 
+|---------|---------|---------------|
+| **Collatz Conjecture** | ~23M | 📐 Mathematical Research |
+| **GPUGRID** | ~6.5M | 💊 Drug Discovery & Molecular Dynamics |
+| **Amicable Numbers** | ~2.3M | 🔢 Number Theory & Mathematics |
+| **SiDock@home** | ~480k | 🧬 Drug Docking Simulations |
+| **Rosetta@home** | ~440k | 🧬 Protein Structure Prediction |
 
-**Total: 33,398,232 Credits**
+Plus 7 additional active projects in astronomy, mathematics, and physics.
 
-### What This Means:
+**Total: 33M+ Credits** across all projects
 
-**Collatz Conjecture (23M+ Credits):**
+*Note: Exact current values visible in live BOINCStats graphics above*
+
+### Key Research Highlights:
+
+**Collatz Conjecture (~23M Credits):**
 - Testing one of mathematics' most famous unsolved problems
 - Computational number theory research
 - Contributing to mathematical knowledge expansion
 
-**GPUGRID (6.4M Credits):**
+**GPUGRID (~6.5M Credits):**
 - GPU-accelerated molecular dynamics simulations
 - Drug discovery for diseases including cancer and COVID-19
 - Protein-ligand interaction studies
 
-**Amicable Numbers (2.3M Credits):**
-- Pure mathematics research
-- Number theory and computational mathematics
-- Searching for rare mathematical relationships
-
-**SiDock@home (482k Credits):**
+**SiDock@home & Rosetta@home:**
 - Drug docking simulations for disease treatment
-- Identifying potential drug candidates
+- Protein structure prediction and design
 - COVID-19 therapeutic research
 
-**Rosetta@home (439k Credits):**
-- Protein structure prediction and design
-- Disease understanding through protein analysis
-- Crucial for drug design and disease treatment
-
-**And 7 more active projects spanning astronomy, mathematics, and physics research...**
-
 ---
 
-<!-- WCG_STATS_START -->
-## 🧬 Scientific Computing Contributions
+<!-- LIVE_STATS_START -->
+## 📊 Live Platform Statistics
 
-I contribute computing power to multiple research platforms for medical breakthroughs.
+*This section updates automatically daily via GitHub Actions.*
 
-**🔄 Last Updated:** `2025-11-17 00:23 UTC`
+*Live Folding@home statistics will appear here after first workflow run.*
 
----
-
-### 💻 Folding@home
-
-![F@H Score](https://img.shields.io/badge/Score-3,833,867-blue?style=for-the-badge&logo=bitcoin)
-![F@H Work Units](https://img.shields.io/badge/Work_Units-27-green?style=for-the-badge&logo=checkmarx)
-![F@H Rank](https://img.shields.io/badge/Rank-%23216,520-purple?style=for-the-badge&logo=rancher)
-
-**My Folding@home Contribution:**
-- 🎯 **3,833,867 Points** earned through protein folding calculations
-- ⚡ **27 Work Units** completed for disease research
-- 🏆 **Rank #216,520** out of 3,021,483 active contributors worldwide
-- 📊 **Top 92.8%** of all Folding@home volunteers
-
-**What I'm helping research:**
-- 🧬 Protein folding for Alzheimer's and Parkinson's disease
-- 🦠 COVID-19 and infectious disease treatments
-- ⚕️ Cancer research and drug discovery
-- 💊 Understanding protein misfolding diseases
-
-**Username:** `HenningSarrus`  
-**Profile:** [View on F@H Stats](https://stats.foldingathome.org/donor/HenningSarrus)
-
----
-
-### 🌍 World Community Grid
-
-**Username:** `henning.sarrus`  
-**Status:** ⏳ Waiting for BOINC data...
-
----
-
-### 🌟 Combined Impact
-
-By contributing to both platforms, I'm supporting a diverse range of critical medical research:
-
-**Research Areas:**
-- 🧬 Protein folding & structural biology
-- 🦠 Infectious disease treatment
-- ⚕️ Cancer research & drug discovery  
-- 🧠 Neurological disorders (Alzheimer's, Parkinson's)
-- 💊 Pharmaceutical development
-- 🔬 Computational biology
-
-**Why This Matters:**
-> Distributed computing allows researchers to run calculations that would take decades on single computers. By donating spare computing power, volunteers like me help accelerate scientific breakthroughs that save lives.
-
----
-
-### 🔧 About This Dashboard
-
-This dashboard is fully automated:
-- 🤖 **GitHub Actions** fetch fresh data daily at 00:00 UTC
-- 🐍 **Python scripts** process APIs from both platforms
-- 📊 **Live statistics** update automatically
-- 🚀 **Zero manual intervention** required
-
-**Tech Stack:** Python 3.11, GitHub Actions, REST APIs, Markdown
-
----
-
-**Want to contribute to science too?**
-- 💻 [Join Folding@home](https://foldingathome.org/)
-- 🌍 [Join World Community Grid](https://www.worldcommunitygrid.org/)
-
-
-<!-- WCG_STATS_END -->
+<!-- LIVE_STATS_END -->
 
 ---
 
@@ -195,40 +112,33 @@ This repository demonstrates advanced DevOps and automation skills:
 
 ```
 ┌─────────────────────────────────────────┐
-│        GitHub Actions (Cron: Daily)     │
+│   GitHub Actions (Cron: Daily 00:00)    │
 └──────────────┬──────────────────────────┘
                │
-       ┌───────┴───────┐
-       │               │
-       ▼               ▼
-┌─────────────┐ ┌─────────────┐
-│   F@H API   │ │   WCG API   │
-└──────┬──────┘ └──────┬──────┘
-       │               │
-       └───────┬───────┘
                ▼
       ┌─────────────────┐
       │  Python Script  │
-      │  Data Processing│
+      │  F@H API Fetch  │
       └────────┬────────┘
                │
        ┌───────┴───────┐
        │               │
        ▼               ▼
 ┌─────────────┐ ┌─────────────┐
-│ README.md   │ │ JSON Data   │
-│ (Auto-updated)│ │  Storage  │
+│ README.md   │ │ BOINC       │
+│ Auto-update │ │ Graphics    │
+│             │ │ (Live)      │
 └─────────────┘ └─────────────┘
 ```
 
 ### Tech Stack
 
-- **Python 3.11** - Multi-platform API integration
-- **GitHub Actions** - Automated daily statistics updates
-- **REST APIs** - Folding@home & World Community Grid
-- **Markdown Badges** - Professional visual display
-- **Git Automation** - Zero-touch deployment
-- **BOINCStats Integration** - Live graphics embedding
+- **Python 3.11** - REST API integration with production error handling
+- **GitHub Actions** - Automated daily statistics updates (cron job)
+- **Folding@home API** - Real-time statistics retrieval
+- **BOINCStats Integration** - Live graphics embedding from 12+ projects
+- **Markdown Badges** - Professional visual metrics display
+- **Git Automation** - Zero-touch deployment pipeline
 
 ### Features
 
@@ -247,14 +157,10 @@ This repository demonstrates advanced DevOps and automation skills:
 ```
 scientific-computing-dashboard/
 ├── .github/workflows/
-│   └── update_scientific_stats.yml    # Daily automation
+│   └── update_stats.yml              # Daily automation
 ├── scripts/
-│   └── fetch_stats.py                 # Multi-platform fetcher
-├── data/
-│   └── wcg-stats.json                 # Live statistics
-├── docs/
-│   └── index.html                     # Optional web dashboard
-└── README.md                           # This file (auto-updated)
+│   └── fetch_stats.py                # API fetcher
+└── README.md                          # This file (auto-updated)
 ```
 
 ---
@@ -274,11 +180,6 @@ Want to contribute to scientific research too?
 1. Visit [foldingathome.org](https://foldingathome.org/)
 2. Download the client
 3. Start folding proteins for disease research
-
-**🌍 World Community Grid (Medical Research):**
-1. Visit [worldcommunitygrid.org](https://www.worldcommunitygrid.org/)
-2. Create a free account
-3. Download BOINC and join WCG projects
 
 ---
 
@@ -309,7 +210,6 @@ Want to contribute to scientific research too?
 **My Profiles:**
 - 🔬 **BOINC Combined:** [View on BOINCStats](https://boincstats.com/stats/-1/user/detail/38537905500)
 - 💻 **Folding@home:** [HenningSarrus](https://stats.foldingathome.org/donor/HenningSarrus)
-- 🌍 **World Community Grid:** [henning.sarrus](https://www.worldcommunitygrid.org/stat/viewMemberInfo.do?userName=henning.sarrus)
 
 ---
 
@@ -319,9 +219,9 @@ This automation implementation is open source. MIT License.
 
 ---
 
-**🔄 Last Update:** Automated via GitHub Actions  
+**📄 Last Update:** Automated via GitHub Actions  
 **🤖 Update Frequency:** Daily at 00:00 UTC  
-**📊 Data Sources:** Live APIs from F@H, WCG | Graphics from BOINCStats
+**📊 Data Sources:** Live APIs from Folding@home | Graphics from BOINCStats
 
 ---
 
