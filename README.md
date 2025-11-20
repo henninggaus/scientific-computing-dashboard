@@ -74,7 +74,7 @@ Plus 7 additional active projects in astronomy, mathematics, and physics.
 <!-- LIVE_STATS_START -->
 ## 📊 Live Platform Statistics
 
-**🔄 Last Updated:** `2025-11-19 00:23 UTC`
+**🔄 Last Updated:** `2025-11-20 00:22 UTC`
 
 This section updates automatically daily via GitHub Actions.
 
@@ -82,14 +82,14 @@ This section updates automatically daily via GitHub Actions.
 
 ### 💻 Folding@home
 
-![F@H Score](https://img.shields.io/badge/Score-4,201,176-blue?style=for-the-badge&logo=bitcoin)
-![F@H Work Units](https://img.shields.io/badge/Work_Units-39-green?style=for-the-badge&logo=checkmarx)
-![F@H Rank](https://img.shields.io/badge/Rank-%23209,486-purple?style=for-the-badge&logo=rancher)
+![F@H Score](https://img.shields.io/badge/Score-4,237,976-blue?style=for-the-badge&logo=bitcoin)
+![F@H Work Units](https://img.shields.io/badge/Work_Units-41-green?style=for-the-badge&logo=checkmarx)
+![F@H Rank](https://img.shields.io/badge/Rank-%23209,166-purple?style=for-the-badge&logo=rancher)
 
 **Current Stats:**
-- 🎯 **4,201,176 Points** earned through protein folding calculations
-- ⚡ **39 Work Units** completed for disease research
-- 🏆 **Rank #209,486** out of 3,021,483 active contributors worldwide
+- 🎯 **4,237,976 Points** earned through protein folding calculations
+- ⚡ **41 Work Units** completed for disease research
+- 🏆 **Rank #209,166** out of 3,021,483 active contributors worldwide
 - 📊 **Top 93.1%** of all Folding@home volunteers
 
 **Research Areas:**
