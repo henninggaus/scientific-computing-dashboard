@@ -74,7 +74,7 @@ Plus 7 additional active projects in astronomy, mathematics, and physics.
 <!-- LIVE_STATS_START -->
 ## 📊 Live Platform Statistics
 
-**🔄 Last Updated:** `2025-11-24 00:24 UTC`
+**🔄 Last Updated:** `2025-11-25 00:22 UTC`
 
 This section updates automatically daily via GitHub Actions.
 
@@ -82,15 +82,15 @@ This section updates automatically daily via GitHub Actions.
 
 ### 💻 Folding@home
 
-![F@H Score](https://img.shields.io/badge/Score-5,218,022-blue?style=for-the-badge&logo=bitcoin)
-![F@H Work Units](https://img.shields.io/badge/Work_Units-73-green?style=for-the-badge&logo=checkmarx)
-![F@H Rank](https://img.shields.io/badge/Rank-%23193,335-purple?style=for-the-badge&logo=rancher)
+![F@H Score](https://img.shields.io/badge/Score-5,668,762-blue?style=for-the-badge&logo=bitcoin)
+![F@H Work Units](https://img.shields.io/badge/Work_Units-85-green?style=for-the-badge&logo=checkmarx)
+![F@H Rank](https://img.shields.io/badge/Rank-%23187,610-purple?style=for-the-badge&logo=rancher)
 
 **Current Stats:**
-- 🎯 **5,218,022 Points** earned through protein folding calculations
-- ⚡ **73 Work Units** completed for disease research
-- 🏆 **Rank #193,335** out of 3,021,483 active contributors worldwide
-- 📊 **Top 93.6%** of all Folding@home volunteers
+- 🎯 **5,668,762 Points** earned through protein folding calculations
+- ⚡ **85 Work Units** completed for disease research
+- 🏆 **Rank #187,610** out of 3,021,483 active contributors worldwide
+- 📊 **Top 93.8%** of all Folding@home volunteers
 
 **Research Areas:**
 - 🧬 Protein folding for Alzheimer's and Parkinson's disease
