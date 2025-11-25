@@ -19,7 +19,7 @@ I contribute idle computing power across multiple platforms to accelerate scient
 <!-- LIVE_STATS_START -->
 ## 📊 Live Platform Statistics
 
-**🔄 Last Updated:** `Awaiting first run`
+**🔄 Last Updated:** `2025-11-25 22:29 UTC`
 
 This section updates automatically daily via GitHub Actions.
 
@@ -27,7 +27,23 @@ This section updates automatically daily via GitHub Actions.
 
 ### 💻 Folding@home
 
-**Status:** ⏳ Awaiting API data...
+![F@H Score](https://img.shields.io/badge/Score-6,058,297-blue?style=for-the-badge&logo=bitcoin)
+![F@H Work Units](https://img.shields.io/badge/Work_Units-94-green?style=for-the-badge&logo=checkmarx)
+![F@H Rank](https://img.shields.io/badge/Rank-%23182,518-purple?style=for-the-badge&logo=rancher)
+
+**Current Stats:**
+- 🎯 **6,058,297 Points** earned through protein folding calculations
+- ⚡ **94 Work Units** completed for disease research
+- 🏆 **Rank #182,518** out of 3,021,483 active contributors worldwide
+- 📊 **Top 94.0%** of all Folding@home volunteers
+
+**Research Focus:**
+- 🧬 Protein folding for Alzheimer's and Parkinson's disease
+- 🦠 COVID-19 and infectious disease treatments
+- ⚕️ Cancer research and drug discovery
+- 💊 Understanding protein misfolding diseases
+
+**Profile:** [View on F@H Stats](https://stats.foldingathome.org/donor/HenningSarrus)
 
 ---
 
@@ -45,7 +61,58 @@ This section updates automatically daily via GitHub Actions.
 
 ### 🌟 Combined Impact
 
-*Statistics will be populated after first GitHub Actions run.*
+**7+ Years of Continuous Scientific Contribution:**
+
+**Platforms:**
+- 💻 **Folding@home** - 6.1M+ Points (94 Work Units)
+- 🔬 **BOINC Network** - 0 Credits across 12+ projects
+
+**Research Areas:**
+- 🧬 Protein folding & structural biology
+- 🦠 Infectious disease treatment
+- ⚕️ Cancer research & drug discovery
+- 🧠 Neurological disorders (Alzheimer's, Parkinson's)
+- 💊 Pharmaceutical development
+- 🔢 Pure mathematics (Collatz, prime numbers)
+- 🔭 Astronomy & astrophysics
+
+**Why This Matters:**
+> Distributed computing allows researchers to run calculations that would take decades on single computers. By donating spare computing power, volunteers accelerate scientific breakthroughs that save lives.
+
+---
+
+### 🔧 Technical Implementation
+
+**Full Production Automation:**
+- 🤖 **GitHub Actions** - Scheduled daily cron job (00:00 UTC)
+- 🐍 **Python 3.11** - REST API integration with error handling
+- 📡 **Folding@home API** - Live statistics retrieval
+- 🔬 **BOINCStats API** - Dynamic credit tracking
+- 🎨 **BOINCStats Graphics** - Embedded live images
+- 📊 **Markdown Badges** - Professional visual metrics
+- 🚀 **Zero Manual Intervention** - Fully automated deployment
+
+**Architecture:**
+```
+GitHub Actions (Daily Cron)
+    ↓
+Python Script fetches F@H + BOINC APIs
+    ↓
+Updates README.md with live data
+    ↓
+Auto-commits via git
+    ↓
+Live on GitHub repo
+```
+
+**Tech Stack:** Python • REST APIs • GitHub Actions • Git Automation • Markdown
+
+---
+
+**Want to contribute to science?**
+- 💻 [Join Folding@home](https://foldingathome.org/) - Protein folding for disease research
+- 🔬 [Join BOINC](https://boinc.berkeley.edu/) - Multi-project scientific computing
+
 
 <!-- LIVE_STATS_END -->
 
