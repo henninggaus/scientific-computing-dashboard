@@ -1,0 +1,57 @@
+{
+  "profiles": {
+    "boinc": {
+      "user_id": "38537905500",
+      "username": "Henning Sarrus",
+      "stats_url": "https://boincstats.com/stats/-1/user/detail/38537905500"
+    },
+    "folding_at_home": {
+      "username": "HenningSarrus",
+      "stats_url": "https://stats.foldingathome.org/donor/HenningSarrus",
+      "api_url": "https://api.foldingathome.org"
+    }
+  },
+  "contribution": {
+    "start_year": 2018,
+    "highlight_projects": [
+      {
+        "name": "Collatz Conjecture",
+        "research_area": "Mathematical Research",
+        "emoji": "🔢"
+      },
+      {
+        "name": "GPUGRID",
+        "research_area": "Drug Discovery & Molecular Dynamics",
+        "emoji": "💊"
+      },
+      {
+        "name": "Amicable Numbers",
+        "research_area": "Number Theory & Mathematics",
+        "emoji": "🔢"
+      },
+      {
+        "name": "SiDock@home",
+        "research_area": "Drug Docking Simulations",
+        "emoji": "🧬"
+      },
+      {
+        "name": "Rosetta@home",
+        "research_area": "Protein Structure Prediction",
+        "emoji": "🧬"
+      }
+    ],
+    "research_areas": [
+      {"name": "Drug Discovery", "emoji": "💊"},
+      {"name": "Cancer Research", "emoji": "⚕️"},
+      {"name": "Neurological Disorders", "emoji": "🧠"},
+      {"name": "Infectious Diseases", "emoji": "🦠"},
+      {"name": "Astronomy", "emoji": "🔭"},
+      {"name": "Mathematics", "emoji": "🔢"},
+      {"name": "Protein Folding", "emoji": "🧬"}
+    ]
+  },
+  "display": {
+    "github_repo": "henninggaus/scientific-computing-dashboard",
+    "update_frequency": "Daily at 00:00 UTC"
+  }
+}

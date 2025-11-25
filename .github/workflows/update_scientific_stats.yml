@@ -8,10 +8,14 @@ on:
   # Manual trigger
   workflow_dispatch:
 
-  # On push (for testing)
+  # On push to main (for testing)
   push:
     branches:
       - main
+    paths:
+      - 'scripts/**'
+      - 'config.json'
+      - '.github/workflows/**'
 
 jobs:
   update-stats:
@@ -31,11 +35,12 @@ jobs:
       - name: 📦 Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install -r requirements.txt
 
       - name: 🔬 Fetch Scientific Computing Stats
         env:
           FAH_USERNAME: ${{ secrets.FAH_USERNAME }}
+          BOINC_USER_ID: ${{ secrets.BOINC_USER_ID }}
         run: |
           python scripts/fetch_stats.py
 
@@ -43,7 +48,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md
+          git add README.md data/
           git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-update stats - $(date +'%Y-%m-%d %H:%M UTC')"
 
       - name: 🚀 Push Changes
