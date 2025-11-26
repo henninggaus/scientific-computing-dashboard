@@ -63,10 +63,6 @@ This section updates automatically daily via GitHub Actions.
 
 **7+ Years of Continuous Scientific Contribution:**
 
-**Platforms:**
-- 💻 **Folding@home** - 6.1M+ Points (96 Work Units)
-- 🔬 **BOINC Network** - 0 Credits across 12+ projects
-
 **Research Areas:**
 - 🧬 Protein folding & structural biology
 - 🦠 Infectious disease treatment
