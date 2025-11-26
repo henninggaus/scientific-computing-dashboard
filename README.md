@@ -19,7 +19,7 @@ I contribute idle computing power across multiple platforms to accelerate scient
 <!-- LIVE_STATS_START -->
 ## 📊 Live Platform Statistics
 
-**🔄 Last Updated:** `2025-11-25 22:29 UTC`
+**🔄 Last Updated:** `2025-11-26 00:23 UTC`
 
 This section updates automatically daily via GitHub Actions.
 
@@ -27,13 +27,13 @@ This section updates automatically daily via GitHub Actions.
 
 ### 💻 Folding@home
 
-![F@H Score](https://img.shields.io/badge/Score-6,058,297-blue?style=for-the-badge&logo=bitcoin)
-![F@H Work Units](https://img.shields.io/badge/Work_Units-94-green?style=for-the-badge&logo=checkmarx)
+![F@H Score](https://img.shields.io/badge/Score-6,132,715-blue?style=for-the-badge&logo=bitcoin)
+![F@H Work Units](https://img.shields.io/badge/Work_Units-96-green?style=for-the-badge&logo=checkmarx)
 ![F@H Rank](https://img.shields.io/badge/Rank-%23182,518-purple?style=for-the-badge&logo=rancher)
 
 **Current Stats:**
-- 🎯 **6,058,297 Points** earned through protein folding calculations
-- ⚡ **94 Work Units** completed for disease research
+- 🎯 **6,132,715 Points** earned through protein folding calculations
+- ⚡ **96 Work Units** completed for disease research
 - 🏆 **Rank #182,518** out of 3,021,483 active contributors worldwide
 - 📊 **Top 94.0%** of all Folding@home volunteers
 
@@ -64,7 +64,7 @@ This section updates automatically daily via GitHub Actions.
 **7+ Years of Continuous Scientific Contribution:**
 
 **Platforms:**
-- 💻 **Folding@home** - 6.1M+ Points (94 Work Units)
+- 💻 **Folding@home** - 6.1M+ Points (96 Work Units)
 - 🔬 **BOINC Network** - 0 Credits across 12+ projects
 
 **Research Areas:**
