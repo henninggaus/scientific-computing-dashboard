@@ -1,17 +1,39 @@
 {
-  "last_updated": "2025-12-17T00:23:32.359766",
-  "years_active": "7+",
+  "last_updated": "2025-12-17T16:47:25.626929",
+  "generated_at": "2025-12-17 16:47 UTC",
   "folding_at_home": {
     "score": 7908286,
     "work_units": 149,
     "rank": 164548,
     "total_users": 3021483,
-    "username": "HenningSarrus"
+    "username": "HenningSarrus",
+    "profile_url": "https://stats.foldingathome.org/donor/HenningSarrus"
+  },
+  "rosetta_at_home": {
+    "credits": 514121,
+    "avg_credit": 6157.71,
+    "user_id": "2003572",
+    "member_since": "2018-06-03",
+    "days_active": 2754,
+    "years_active": 7.5,
+    "profile_url": "https://boinc.bakerlab.org/rosetta/view_profile.php?userid=2003572",
+    "stats_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
+    "days_before_nobel": 2320,
+    "years_before_nobel": 6.4
   },
   "boinc": {
-    "total_credits": 0,
+    "total_credits": 11328866,
     "project_count": 12,
     "rank": null,
-    "user_id": "38537905500"
+    "total_users": null,
+    "user_id": "38537905500",
+    "profile_url": "https://boincstats.com/stats/-1/user/detail/38537905500"
+  },
+  "nobel_prize": {
+    "year": 2024,
+    "connection": "Rosetta@home contributor",
+    "laureate": "David Baker",
+    "institution": "University of Washington",
+    "prize_date": "2024-10-09"
   }
 }
