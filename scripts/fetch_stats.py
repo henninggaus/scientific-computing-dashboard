@@ -121,70 +121,12 @@ def fetch_rosetta_data(user_id: str) -> dict | None:
         return None
 
 
-def fetch_boinc_data(user_id: str, config: dict) -> dict | None:
-    """Fetch BOINC combined statistics - with config fallback"""
-
-    # Get fallback values from config if available
-    fallback = config.get('profiles', {}).get('boinc', {}).get('fallback_stats', {})
-
-    try:
-        print(f"Fetching BOINC combined data for: {user_id}")
-
-        # Try XML API first
-        url = f"https://boincstats.com/stats/-1/user/detail/{user_id}/xml"
-        response = requests.get(url, timeout=30)
-
-        if response.status_code == 200:
-            xml = response.text
-
-            def extract(pattern, default=0):
-                match = re.search(pattern, xml)
-                if match:
-                    try:
-                        return float(match.group(1).replace(',', ''))
-                    except:
-                        return default
-                return default
-
-            credit = int(extract(r'<total_credit>([^<]+)</total_credit>'))
-
-            # If we got valid data, use it
-            if credit > 0:
-                data = {
-                    'total_credit': credit,
-                    'rank': int(extract(r'<world_rank>([^<]+)</world_rank>')) or None,
-                    'total_users': int(extract(r'<total_users>([^<]+)</total_users>')) or None,
-                    'project_count': xml.count('<project>') or 12
-                }
-                print(f"  Credits: {data['total_credit']:,}")
-                return data
-
-        # Fallback to config values
-        if fallback:
-            print(f"  Using fallback values from config")
-            return {
-                'total_credit': fallback.get('total_credit', 0),
-                'rank': fallback.get('rank'),
-                'total_users': fallback.get('total_users'),
-                'project_count': fallback.get('project_count', 12)
-            }
-
-        return {'total_credit': 0, 'rank': None, 'total_users': None, 'project_count': 12}
-
-    except Exception as e:
-        print(f"  Error: {e}")
-
-        # Return fallback if available
-        if fallback:
-            print(f"  Using fallback values from config")
-            return {
-                'total_credit': fallback.get('total_credit', 0),
-                'rank': fallback.get('rank'),
-                'total_users': fallback.get('total_users'),
-                'project_count': fallback.get('project_count', 12)
-            }
-
-        return None
+def fetch_boinc_data(user_id: str) -> dict:
+    """Return minimal BOINC data - stats come from signature image"""
+    return {
+        'user_id': user_id,
+        'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{user_id}"
+    }
 
 
 def save_stats_json(config: dict, fah: dict | None, rosetta: dict | None, boinc: dict | None):
@@ -221,12 +163,9 @@ def save_stats_json(config: dict, fah: dict | None, rosetta: dict | None, boinc:
         },
 
         'boinc': {
-            'total_credits': boinc.get('total_credit', 0) if boinc else 0,
-            'project_count': boinc.get('project_count', 12) if boinc else 12,
-            'rank': boinc.get('rank') if boinc else None,
-            'total_users': boinc.get('total_users') if boinc else None,
             'user_id': config['profiles']['boinc']['user_id'],
-            'profile_url': f"https://boincstats.com/stats/-1/user/detail/{config['profiles']['boinc']['user_id']}"
+            'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{config['profiles']['boinc']['user_id']}",
+            'signature_url': f"https://boincstats.com/signature/-1/user/{config['profiles']['boinc']['user_id']}/sig.png"
         },
 
         'nobel_prize': {
@@ -350,7 +289,7 @@ def main():
     print()
     rosetta_data = fetch_rosetta_data(config['profiles']['rosetta_at_home']['user_id'])
     print()
-    boinc_data = fetch_boinc_data(config['profiles']['boinc']['user_id'], config)
+    boinc_data = fetch_boinc_data(config['profiles']['boinc']['user_id'])
 
     stats = save_stats_json(config, fah_data, rosetta_data, boinc_data)
     update_readme(config, stats)
@@ -359,7 +298,7 @@ def main():
     print("Done.")
     print(f"  Rosetta: {stats['rosetta_at_home']['credits']:,} credits, {stats['rosetta_at_home']['days_active']} days")
     print(f"  F@H: {stats['folding_at_home']['score']:,} points")
-    print(f"  BOINC: {stats['boinc']['total_credits']:,} credits")
+    print(f"  BOINC: using signature image (live stats)")
 
 
 if __name__ == "__main__":

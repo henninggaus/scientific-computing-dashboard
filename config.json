@@ -9,13 +9,7 @@
       "team": "MEDIA DATABASE"
     },
     "boinc": {
-      "user_id": "38537905500",
-      "fallback_stats": {
-        "total_credit": 34494052,
-        "rank": 24138,
-        "total_users": 4049934,
-        "project_count": 12
-      }
+      "user_id": "38537905500"
     }
   },
   "contribution": {

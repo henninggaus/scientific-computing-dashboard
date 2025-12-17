@@ -292,23 +292,18 @@
 
             <!-- BOINC -->
             <section>
-                <h2>BOINC Projects</h2>
+                <h2>BOINC Network</h2>
                 <p>
-                    Contributing to <span id="boinc-projects">12</span>+ projects across multiple research areas.
+                    Contributing to multiple projects across mathematics, astronomy, and molecular research.
                 </p>
 
-                <div class="stats-row">
-                    <div class="stat">
-                        <div class="value" id="boinc-credits">-</div>
-                        <div class="label">total credits</div>
-                    </div>
-                    <div class="stat">
-                        <div class="value" id="boinc-rank">-</div>
-                        <div class="label">global rank</div>
-                    </div>
+                <div class="boinc-images">
+                    <a href="https://boincstats.com/en/stats/-1/user/detail/38537905500" target="_blank">
+                        <img src="https://boincstats.com/signature/-1/user/38537905500/sig.png"
+                             alt="BOINC Statistics"
+                             onerror="this.style.display='none'">
+                    </a>
                 </div>
-
-                <p id="boinc-percentile" style="color: #86868b; font-size: 0.9em;"></p>
 
                 <div class="project-grid">
                     <div class="project">
@@ -335,12 +330,6 @@
                         <h3>PrimeGrid</h3>
                         <p>Prime number search</p>
                     </div>
-                </div>
-
-                <div class="boinc-images">
-                    <img src="https://boincstats.com/signature/-1/user/38537905500/sig.png"
-                         alt="BOINC Statistics"
-                         onerror="this.style.display='none'">
                 </div>
             </section>
 
@@ -399,20 +388,6 @@
                     const percentile = 100 - (fah.rank / fah.total_users * 100);
                     document.getElementById('fah-percentile').textContent =
                         `Top ${percentile.toFixed(1)}% of ${fah.total_users.toLocaleString()} contributors`;
-                }
-
-                // BOINC
-                const boinc = data.boinc;
-                document.getElementById('boinc-credits').textContent = formatNumber(boinc.total_credits);
-                document.getElementById('boinc-projects').textContent = boinc.project_count;
-
-                if (boinc.rank) {
-                    document.getElementById('boinc-rank').textContent = '#' + boinc.rank.toLocaleString();
-                    if (boinc.total_users > 0) {
-                        const percentile = 100 - (boinc.rank / boinc.total_users * 100);
-                        document.getElementById('boinc-percentile').textContent =
-                            `Top ${percentile.toFixed(1)}% of ${boinc.total_users.toLocaleString()} contributors`;
-                    }
                 }
 
                 // Update time
