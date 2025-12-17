@@ -1,17 +1,17 @@
 {
-  "last_updated": "2025-12-17T16:47:25.626929",
-  "generated_at": "2025-12-17 16:47 UTC",
+  "last_updated": "2025-12-17T16:52:36.896799",
+  "generated_at": "2025-12-17 16:52 UTC",
   "folding_at_home": {
     "score": 7908286,
     "work_units": 149,
-    "rank": 164548,
+    "rank": 164562,
     "total_users": 3021483,
     "username": "HenningSarrus",
     "profile_url": "https://stats.foldingathome.org/donor/HenningSarrus"
   },
   "rosetta_at_home": {
-    "credits": 514121,
-    "avg_credit": 6157.71,
+    "credits": 520956,
+    "avg_credit": 6157.705011001064,
     "user_id": "2003572",
     "member_since": "2018-06-03",
     "days_active": 2754,
@@ -22,7 +22,7 @@
     "years_before_nobel": 6.4
   },
   "boinc": {
-    "total_credits": 11328866,
+    "total_credits": 0,
     "project_count": 12,
     "rank": null,
     "total_users": null,

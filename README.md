@@ -17,101 +17,46 @@ I contribute idle computing power across multiple platforms to accelerate scient
 ---
 
 <!-- LIVE_STATS_START -->
-## 📊 Live Platform Statistics
+## Live Statistics
 
-**🔄 Last Updated:** `2025-12-17 00:23 UTC`
-
-This section updates automatically daily via GitHub Actions.
+Updated: 2025-12-17 16:52 UTC
 
 ---
 
-### 💻 Folding@home
+### Rosetta@home
 
-![F@H Score](https://img.shields.io/badge/Score-7,908,286-blue?style=for-the-badge&logo=bitcoin)
-![F@H Work Units](https://img.shields.io/badge/Work_Units-149-green?style=for-the-badge&logo=checkmarx)
-![F@H Rank](https://img.shields.io/badge/Rank-%23164,548-purple?style=for-the-badge&logo=rancher)
+Contributing to Nobel Prize-winning research since 2018-06-03.
 
-**Current Stats:**
-- 🎯 **7,908,286 Points** earned through protein folding calculations
-- ⚡ **149 Work Units** completed for disease research
-- 🏆 **Rank #164,548** out of 3,021,483 active contributors worldwide
-- 📊 **Top 94.6%** of all Folding@home volunteers
+- 520,956 credits earned
+- 2,754 days active (7.5 years)
+- Joined 6.4 years before David Baker received the 2024 Nobel Prize in Chemistry
 
-**Research Focus:**
-- 🧬 Protein folding for Alzheimer's and Parkinson's disease
-- 🦠 COVID-19 and infectious disease treatments
-- ⚕️ Cancer research and drug discovery
-- 💊 Understanding protein misfolding diseases
-
-**Profile:** [View on F@H Stats](https://stats.foldingathome.org/donor/HenningSarrus)
+[View Profile](https://boinc.bakerlab.org/rosetta/view_profile.php?userid=2003572) · [View Stats](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572)
 
 ---
 
-### 🔬 BOINC Network
+### Folding@home
 
-**Live Project Breakdown:**
+- 7,908,286 points
+- 149 work units completed
+- Rank #164,562 of 3,021,483 contributors (top 94.6%)
+
+[View Profile](https://stats.foldingathome.org/donor/HenningSarrus)
+
+---
+
+### BOINC Network
+
+- 0 total credits
+- 12+ active projects
+
+[View Profile](https://boincstats.com/stats/-1/user/detail/38537905500)
 
 ![BOINC Stats](https://boincstats.com/signature/-1/user/38537905500/sig.png)
 
-![BOINC Projects](https://boincstats.com/signature/-1/user/38537905500/project/sig.png)
-
-**Profile:** [View Full Profile on BOINCStats](https://boincstats.com/stats/-1/user/detail/38537905500)
-
 ---
 
-### 🌟 Combined Impact
-
-**7+ Years of Continuous Scientific Contribution:**
-
-**Platforms:**
-- 💻 **Folding@home** - 7.9M+ Points (149 Work Units)
-- 🔬 **BOINC Network** - 0 Credits across 12+ projects
-
-**Research Areas:**
-- 🧬 Protein folding & structural biology
-- 🦠 Infectious disease treatment
-- ⚕️ Cancer research & drug discovery
-- 🧠 Neurological disorders (Alzheimer's, Parkinson's)
-- 💊 Pharmaceutical development
-- 🔢 Pure mathematics (Collatz, prime numbers)
-- 🔭 Astronomy & astrophysics
-
-**Why This Matters:**
-> Distributed computing allows researchers to run calculations that would take decades on single computers. By donating spare computing power, volunteers accelerate scientific breakthroughs that save lives.
-
----
-
-### 🔧 Technical Implementation
-
-**Full Production Automation:**
-- 🤖 **GitHub Actions** - Scheduled daily cron job (00:00 UTC)
-- 🐍 **Python 3.11** - REST API integration with error handling
-- 📡 **Folding@home API** - Live statistics retrieval
-- 🔬 **BOINCStats API** - Dynamic credit tracking
-- 🎨 **BOINCStats Graphics** - Embedded live images
-- 📊 **Markdown Badges** - Professional visual metrics
-- 🚀 **Zero Manual Intervention** - Fully automated deployment
-
-**Architecture:**
-```
-GitHub Actions (Daily Cron)
-    ↓
-Python Script fetches F@H + BOINC APIs
-    ↓
-Updates README.md with live data
-    ↓
-Auto-commits via git
-    ↓
-Live on GitHub repo
-```
-
-**Tech Stack:** Python • REST APIs • GitHub Actions • Git Automation • Markdown
-
----
-
-**Want to contribute to science?**
-- 💻 [Join Folding@home](https://foldingathome.org/) - Protein folding for disease research
-- 🔬 [Join BOINC](https://boinc.berkeley.edu/) - Multi-project scientific computing
+Data fetched automatically via GitHub Actions.
 
 
 <!-- LIVE_STATS_END -->
