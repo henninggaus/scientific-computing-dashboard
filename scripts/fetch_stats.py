@@ -121,35 +121,69 @@ def fetch_rosetta_data(user_id: str) -> dict | None:
         return None
 
 
-def fetch_boinc_data(user_id: str) -> dict | None:
-    """Fetch BOINC combined statistics via BOINCStats API"""
+def fetch_boinc_data(user_id: str, config: dict) -> dict | None:
+    """Fetch BOINC combined statistics - with config fallback"""
+
+    # Get fallback values from config if available
+    fallback = config.get('profiles', {}).get('boinc', {}).get('fallback_stats', {})
+
     try:
         print(f"Fetching BOINC combined data for: {user_id}")
-        response = requests.get(f"https://boincstats.com/stats/-1/user/detail/{user_id}/xml", timeout=30)
-        response.raise_for_status()
-        xml = response.text
 
-        def extract(pattern, default=0):
-            match = re.search(pattern, xml)
-            if match:
-                try:
-                    return float(match.group(1).replace(',', ''))
-                except:
-                    return default
-            return default
+        # Try XML API first
+        url = f"https://boincstats.com/stats/-1/user/detail/{user_id}/xml"
+        response = requests.get(url, timeout=30)
 
-        data = {
-            'total_credit': int(extract(r'<total_credit>([^<]+)</total_credit>')),
-            'rank': int(extract(r'<world_rank>([^<]+)</world_rank>')) or None,
-            'total_users': int(extract(r'<total_users>([^<]+)</total_users>')) or None,
-            'project_count': xml.count('<project>') or 12
-        }
+        if response.status_code == 200:
+            xml = response.text
 
-        print(f"  Credits: {data['total_credit']:,} | Projects: {data['project_count']}")
-        return data
+            def extract(pattern, default=0):
+                match = re.search(pattern, xml)
+                if match:
+                    try:
+                        return float(match.group(1).replace(',', ''))
+                    except:
+                        return default
+                return default
+
+            credit = int(extract(r'<total_credit>([^<]+)</total_credit>'))
+
+            # If we got valid data, use it
+            if credit > 0:
+                data = {
+                    'total_credit': credit,
+                    'rank': int(extract(r'<world_rank>([^<]+)</world_rank>')) or None,
+                    'total_users': int(extract(r'<total_users>([^<]+)</total_users>')) or None,
+                    'project_count': xml.count('<project>') or 12
+                }
+                print(f"  Credits: {data['total_credit']:,}")
+                return data
+
+        # Fallback to config values
+        if fallback:
+            print(f"  Using fallback values from config")
+            return {
+                'total_credit': fallback.get('total_credit', 0),
+                'rank': fallback.get('rank'),
+                'total_users': fallback.get('total_users'),
+                'project_count': fallback.get('project_count', 12)
+            }
+
+        return {'total_credit': 0, 'rank': None, 'total_users': None, 'project_count': 12}
 
     except Exception as e:
         print(f"  Error: {e}")
+
+        # Return fallback if available
+        if fallback:
+            print(f"  Using fallback values from config")
+            return {
+                'total_credit': fallback.get('total_credit', 0),
+                'rank': fallback.get('rank'),
+                'total_users': fallback.get('total_users'),
+                'project_count': fallback.get('project_count', 12)
+            }
+
         return None
 
 
@@ -316,7 +350,7 @@ def main():
     print()
     rosetta_data = fetch_rosetta_data(config['profiles']['rosetta_at_home']['user_id'])
     print()
-    boinc_data = fetch_boinc_data(config['profiles']['boinc']['user_id'])
+    boinc_data = fetch_boinc_data(config['profiles']['boinc']['user_id'], config)
 
     stats = save_stats_json(config, fah_data, rosetta_data, boinc_data)
     update_readme(config, stats)

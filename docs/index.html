@@ -302,7 +302,13 @@
                         <div class="value" id="boinc-credits">-</div>
                         <div class="label">total credits</div>
                     </div>
+                    <div class="stat">
+                        <div class="value" id="boinc-rank">-</div>
+                        <div class="label">global rank</div>
+                    </div>
                 </div>
+
+                <p id="boinc-percentile" style="color: #86868b; font-size: 0.9em;"></p>
 
                 <div class="project-grid">
                     <div class="project">
@@ -399,6 +405,15 @@
                 const boinc = data.boinc;
                 document.getElementById('boinc-credits').textContent = formatNumber(boinc.total_credits);
                 document.getElementById('boinc-projects').textContent = boinc.project_count;
+
+                if (boinc.rank) {
+                    document.getElementById('boinc-rank').textContent = '#' + boinc.rank.toLocaleString();
+                    if (boinc.total_users > 0) {
+                        const percentile = 100 - (boinc.rank / boinc.total_users * 100);
+                        document.getElementById('boinc-percentile').textContent =
+                            `Top ${percentile.toFixed(1)}% of ${boinc.total_users.toLocaleString()} contributors`;
+                    }
+                }
 
                 // Update time
                 document.getElementById('update-time').textContent = data.generated_at;
