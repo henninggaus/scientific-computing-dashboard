@@ -233,12 +233,11 @@ Contributing to Nobel Prize-winning research since {rosetta['member_since']}.
 
 ### BOINC Network
 
-- {boinc['total_credits']:,} total credits
-- {boinc['project_count']}+ active projects
+Contributing to 12+ scientific projects.
 
 [View Profile]({boinc['profile_url']})
 
-![BOINC Stats](https://boincstats.com/signature/-1/user/{boinc['user_id']}/sig.png)
+![BOINC Stats]({boinc['signature_url']})
 
 ---
 
