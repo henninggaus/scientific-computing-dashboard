@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-19T16:09:26.303779",
-  "generated_at": "2025-12-19 16:09 UTC",
+  "last_updated": "2025-12-19T16:21:51.672817",
+  "generated_at": "2025-12-19 16:21 UTC",
   "projects": {
     "rosetta": {
       "name": "Rosetta@home",
@@ -12,8 +12,8 @@
       "years_active": 7.5,
       "user_id": "2003572",
       "profile_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
-      "credits": 573868,
-      "avg_credit": 9873.1,
+      "credits": 574180,
+      "avg_credit": 9895.29,
       "live": true,
       "days_before_nobel": 2320,
       "years_before_nobel": 6.4,
@@ -99,6 +99,81 @@
       "years_active": 6.4,
       "credits": 898928,
       "live": false
+    },
+    "primegrid": {
+      "name": "PrimeGrid",
+      "category": "math",
+      "description": "Searching for large prime numbers",
+      "url": "https://www.primegrid.com",
+      "member_since": "2019-09-12",
+      "days_active": 2290,
+      "years_active": 6.3,
+      "user_id": "1188549",
+      "profile_url": "https://www.primegrid.com/show_user.php?userid=1188549",
+      "credits": 224437,
+      "avg_credit": 0.09,
+      "live": true
+    },
+    "milkyway": {
+      "name": "MilkyWay@home",
+      "category": "astronomy",
+      "description": "Modeling the Milky Way galaxy",
+      "url": "https://milkyway.cs.rpi.edu/milkyway",
+      "member_since": "2019-10-05",
+      "days_active": 2267,
+      "years_active": 6.2,
+      "user_id": "1365700",
+      "profile_url": "https://milkyway.cs.rpi.edu/milkyway/show_user.php?userid=1365700",
+      "credits": 124111,
+      "avg_credit": 1.03,
+      "live": true
+    },
+    "asteroids": {
+      "name": "Asteroids@home",
+      "category": "astronomy",
+      "description": "Asteroid shape and spin modeling",
+      "url": "https://asteroidsathome.net/boinc",
+      "member_since": "2018-08-11",
+      "days_active": 2687,
+      "years_active": 7.4,
+      "user_id": "403666",
+      "profile_url": "https://asteroidsathome.net/boinc/show_user.php?userid=403666",
+      "credits": 75840,
+      "avg_credit": 0.09,
+      "live": true
+    },
+    "collatz": {
+      "name": "Collatz Conjecture",
+      "category": "math",
+      "description": "Testing the Collatz conjecture",
+      "url": "https://boinc.thesonntags.com/collatz",
+      "member_since": "2019-08-05",
+      "days_active": 2328,
+      "years_active": 6.4,
+      "credits": 23165561,
+      "live": false
+    },
+    "seti": {
+      "name": "SETI@home",
+      "category": "astronomy",
+      "description": "Search for extraterrestrial intelligence",
+      "url": "https://setiathome.berkeley.edu",
+      "member_since": "2018-08-11",
+      "days_active": 2687,
+      "years_active": 7.4,
+      "credits": 21928,
+      "live": false
+    },
+    "cosmology": {
+      "name": "Cosmology@Home",
+      "category": "astronomy",
+      "description": "Cosmological models of the universe",
+      "url": "https://www.cosmologyathome.org",
+      "member_since": "2019-08-05",
+      "days_active": 2328,
+      "years_active": 6.4,
+      "credits": 36,
+      "live": false
     }
   },
   "categories": {
@@ -106,15 +181,15 @@
       "name": "Biology & Medicine",
       "icon": "\ud83e\uddec",
       "color": "#22c55e",
-      "total_credits": 8544815,
+      "total_credits": 8545127,
       "project_count": 3
     },
     "math": {
       "name": "Mathematics",
       "icon": "\ud83d\udd22",
       "color": "#3b82f6",
-      "total_credits": 2468711,
-      "project_count": 3
+      "total_credits": 25858709,
+      "project_count": 5
     },
     "earth": {
       "name": "Earth Sciences",
@@ -122,11 +197,18 @@
       "color": "#f59e0b",
       "total_credits": 898928,
       "project_count": 1
+    },
+    "astronomy": {
+      "name": "Astronomy & Space",
+      "icon": "\ud83d\udd2d",
+      "color": "#8b5cf6",
+      "total_credits": 221915,
+      "project_count": 4
     }
   },
   "totals": {
-    "boinc_credits": 11912454,
-    "boinc_projects": 7,
+    "boinc_credits": 35524679,
+    "boinc_projects": 13,
     "earliest_join": "2018-06-03",
     "total_days": 2756,
     "total_years": 7.5
