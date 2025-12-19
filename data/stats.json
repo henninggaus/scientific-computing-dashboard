@@ -1,36 +1,161 @@
 {
-  "last_updated": "2025-12-19T00:24:30.087944",
-  "generated_at": "2025-12-19 00:24 UTC",
+  "last_updated": "2025-12-19T12:00:00.000000",
+  "generated_at": "2025-12-19 12:00 UTC",
   "folding_at_home": {
     "score": 7908286,
     "work_units": 149,
-    "rank": 164586,
+    "rank": 164548,
     "total_users": 3021483,
     "username": "HenningSarrus",
     "profile_url": "https://stats.foldingathome.org/donor/HenningSarrus"
   },
-  "rosetta_at_home": {
-    "credits": 551913,
-    "avg_credit": 8280.934567685448,
-    "user_id": "2003572",
-    "member_since": "2018-06-03",
-    "days_active": 2756,
-    "years_active": 7.5,
-    "profile_url": "https://boinc.bakerlab.org/rosetta/view_profile.php?userid=2003572",
-    "stats_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
-    "days_before_nobel": 2320,
-    "years_before_nobel": 6.4
+  "projects": {
+    "rosetta": {
+      "name": "Rosetta@home",
+      "category": "biology",
+      "description": "Protein structure prediction",
+      "url": "https://boinc.bakerlab.org/rosetta",
+      "member_since": "2018-06-03",
+      "days_active": 2391,
+      "years_active": 6.5,
+      "user_id": "2003572",
+      "profile_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
+      "credits": 526692,
+      "avg_credit": 6552.6,
+      "live": true,
+      "days_before_nobel": 2320,
+      "years_before_nobel": 6.4,
+      "nobel_connection": true
+    },
+    "gpugrid": {
+      "name": "GPUGRID",
+      "category": "biology",
+      "description": "Molecular dynamics simulations",
+      "url": "https://www.gpugrid.net/gpugrid",
+      "member_since": "2019-04-20",
+      "days_active": 2070,
+      "years_active": 5.7,
+      "user_id": "543812",
+      "profile_url": "https://www.gpugrid.net/gpugrid/show_user.php?userid=543812",
+      "credits": 6450000,
+      "avg_credit": 0.1,
+      "live": true
+    },
+    "sidock": {
+      "name": "SiDock@home",
+      "category": "biology",
+      "description": "Drug discovery for SARS-CoV-2",
+      "url": "https://www.sidock.si/sidock",
+      "member_since": "2025-04-10",
+      "days_active": 254,
+      "years_active": 0.7,
+      "user_id": "13871",
+      "profile_url": "https://www.sidock.si/sidock/show_user.php?userid=13871",
+      "credits": 1520947,
+      "avg_credit": 16254.38,
+      "live": true
+    },
+    "yoyo": {
+      "name": "yoyo@home",
+      "category": "math",
+      "description": "Mathematical research (ECM, Siever)",
+      "url": "https://www.rechenkraft.net/yoyo",
+      "member_since": "2018-08-11",
+      "days_active": 2322,
+      "years_active": 6.4,
+      "user_id": "319246",
+      "profile_url": "https://www.rechenkraft.net/yoyo/show_user.php?userid=319246",
+      "credits": 101050,
+      "avg_credit": 0.07,
+      "live": true
+    },
+    "amicable": {
+      "name": "Amicable Numbers",
+      "category": "math",
+      "description": "Finding amicable number pairs",
+      "url": "https://sech.me/boinc/Amicable",
+      "member_since": "2019-10-05",
+      "days_active": 1902,
+      "years_active": 5.2,
+      "user_id": "22852",
+      "profile_url": "https://sech.me/boinc/Amicable/show_user.php?userid=22852",
+      "credits": 2351651,
+      "avg_credit": 1601.34,
+      "live": true
+    },
+    "ramanujan": {
+      "name": "Ramanujan Machine",
+      "category": "math",
+      "description": "Discovering mathematical formulas",
+      "url": "https://rnma.xyz/boinc",
+      "member_since": "2025-03-29",
+      "days_active": 266,
+      "years_active": 0.7,
+      "user_id": "2554988",
+      "profile_url": "https://rnma.xyz/boinc/show_user.php?userid=2554988",
+      "credits": 16012,
+      "avg_credit": 14.36,
+      "live": true
+    },
+    "climateprediction": {
+      "name": "Climateprediction.net",
+      "category": "earth",
+      "description": "Climate modeling",
+      "url": "https://www.cpdn.org",
+      "member_since": "2019-08-05",
+      "days_active": 1963,
+      "years_active": 5.4,
+      "credits": 898928,
+      "avg_credit": 670.98,
+      "live": false
+    },
+    "wcg": {
+      "name": "World Community Grid",
+      "category": "biology",
+      "description": "Medical & humanitarian research",
+      "url": "https://www.worldcommunitygrid.org",
+      "member_since": "2025-11-15",
+      "days_active": 34,
+      "years_active": 0.1,
+      "member_id": "1178154",
+      "image_url": "https://www.worldcommunitygrid.org/getDynamicImage.do?memberName=henningsarrus&mnOn=true&stat=1&imageNum=1&rankOn=true&projectsOn=true&special=true",
+      "credits": 0,
+      "live": false
+    }
   },
-  "boinc": {
+  "categories": {
+    "biology": {
+      "name": "Biology & Medicine",
+      "icon": "🧬",
+      "color": "#22c55e",
+      "total_credits": 8497639,
+      "project_count": 4
+    },
+    "math": {
+      "name": "Mathematics",
+      "icon": "🔢",
+      "color": "#3b82f6",
+      "total_credits": 2468713,
+      "project_count": 3
+    },
+    "earth": {
+      "name": "Earth Sciences",
+      "icon": "🌍",
+      "color": "#f59e0b",
+      "total_credits": 898928,
+      "project_count": 1
+    }
+  },
+  "boinc_combined": {
     "user_id": "38537905500",
     "profile_url": "https://boincstats.com/en/stats/-1/user/detail/38537905500",
     "signature_url": "https://boincstats.com/signature/-1/user/38537905500/sig.png"
   },
-  "nobel_prize": {
-    "year": 2024,
-    "connection": "Rosetta@home contributor",
-    "laureate": "David Baker",
-    "institution": "University of Washington",
-    "prize_date": "2024-10-09"
+  "totals": {
+    "boinc_credits": 11865280,
+    "boinc_projects": 7,
+    "earliest_join": "2018-06-03",
+    "total_days": 2391,
+    "total_years": 6.5
   }
 }

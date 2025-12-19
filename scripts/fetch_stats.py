@@ -1,43 +1,25 @@
 #!/usr/bin/env python3
 """
 Scientific Computing Stats Fetcher
-Automated daily updates for distributed computing portfolio
-
-Features:
-- Dynamic stats from Folding@home API
-- Rosetta@home stats via BOINC XML API
-- BOINC combined stats via BOINCStats API
-- Dynamic day/year calculations from config dates
-- Zero hardcoded values
+Fetches live statistics from multiple BOINC projects and Folding@home
 """
 
-import requests
 import json
 import os
 import re
+import requests
 from datetime import datetime, date
 from pathlib import Path
 
 
 def load_config() -> dict:
     """Load configuration from config.json"""
-    config_path = Path(__file__).parent.parent / "config.json"
-
-    if not config_path.exists():
-        return {
-            "profiles": {
-                "boinc": {"user_id": os.environ.get("BOINC_USER_ID", "38537905500")},
-                "folding_at_home": {"username": os.environ.get("FAH_USERNAME", "HenningSarrus")},
-                "rosetta_at_home": {
-                    "user_id": os.environ.get("ROSETTA_USER_ID", "2003572"),
-                    "member_since": "2018-06-03"
-                }
-            },
-            "contribution": {"start_year": 2018}
-        }
-
-    with open(config_path, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    config_paths = ['config.json', 'scripts/config.json', '../config.json']
+    for path in config_paths:
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+    raise FileNotFoundError("config.json not found")
 
 
 def calculate_days_since(date_str: str) -> int:
@@ -52,27 +34,20 @@ def calculate_years_since(date_str: str) -> float:
     return round(days / 365.25, 1)
 
 
-def fetch_fah_data(username: str) -> dict | None:
-    """Fetch Folding@home statistics via official API"""
-    try:
-        print(f"Fetching Folding@home data for: {username}")
-        response = requests.get(f"https://api.foldingathome.org/user/{username}", timeout=30)
-        response.raise_for_status()
-        data = response.json()
-        print(f"  Score: {data.get('score', 0):,} | WUs: {data.get('wus', 0)} | Rank: #{data.get('rank', 0):,}")
-        return data
-    except Exception as e:
-        print(f"  Error: {e}")
+def fetch_boinc_project(project_key: str, project_config: dict) -> dict | None:
+    """Fetch stats from a standard BOINC project using XML API"""
+
+    name = project_config['name']
+    base_url = project_config['url']
+    user_id = project_config.get('user_id')
+
+    if not user_id:
         return None
 
-
-def fetch_rosetta_data(user_id: str) -> dict | None:
-    """Fetch Rosetta@home statistics via BOINC XML API"""
     try:
-        print(f"Fetching Rosetta@home data for user: {user_id}")
+        print(f"Fetching {name} data for user: {user_id}")
 
-        # Try XML format first (standard BOINC)
-        url = f"https://boinc.bakerlab.org/rosetta/show_user.php?userid={user_id}&format=xml"
+        url = f"{base_url}/show_user.php?userid={user_id}&format=xml"
         response = requests.get(url, timeout=30)
 
         if response.status_code == 200 and '<user>' in response.text:
@@ -88,156 +63,223 @@ def fetch_rosetta_data(user_id: str) -> dict | None:
                 return default
 
             data = {
-                'total_credit': int(extract(r'<total_credit>([^<]+)</total_credit>')),
-                'expavg_credit': extract(r'<expavg_credit>([^<]+)</expavg_credit>'),
-                'create_time': int(extract(r'<create_time>([^<]+)</create_time>')),
+                'credits': int(extract(r'<total_credit>([^<]+)</total_credit>')),
+                'avg_credit': round(extract(r'<expavg_credit>([^<]+)</expavg_credit>'), 2),
             }
 
-            # Extract member_since from create_time (Unix timestamp)
-            if data['create_time'] > 0:
-                data['member_since'] = datetime.fromtimestamp(data['create_time']).strftime('%Y-%m-%d')
-
-            print(f"  Credits: {data['total_credit']:,} | Avg: {data['expavg_credit']:.1f}")
+            print(f"  ✓ Credits: {data['credits']:,}")
             return data
-
-        # Fallback: scrape HTML
-        url = f"https://boinc.bakerlab.org/rosetta/show_user.php?userid={user_id}"
-        response = requests.get(url, timeout=30)
-        html = response.text
-
-        credit_match = re.search(r'Gesamtguthaben[^>]*>[\s]*([0-9,\.]+)', html)
-        if not credit_match:
-            credit_match = re.search(r'Total credit[^>]*>[\s]*([0-9,\.]+)', html)
-
-        credits = 0
-        if credit_match:
-            credits = int(float(credit_match.group(1).replace(',', '').replace('.', '')))
-
-        print(f"  Credits (HTML): {credits:,}")
-        return {'total_credit': credits, 'expavg_credit': 0}
+        else:
+            print(f"  ✗ API returned non-XML response")
+            return None
 
     except Exception as e:
-        print(f"  Error: {e}")
+        print(f"  ✗ Error: {e}")
         return None
 
 
-def fetch_boinc_data(user_id: str) -> dict:
-    """Return minimal BOINC data - stats come from signature image"""
-    return {
-        'user_id': user_id,
-        'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{user_id}"
-    }
+def fetch_fah_data(username: str) -> dict | None:
+    """Fetch Folding@home statistics via official API"""
+    try:
+        print(f"Fetching Folding@home data for: {username}")
+        response = requests.get(f"https://api.foldingathome.org/user/{username}", timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        print(f"  ✓ Score: {data.get('score', 0):,} | WUs: {data.get('wus', 0)}")
+        return data
+    except Exception as e:
+        print(f"  ✗ Error: {e}")
+        return None
 
 
-def save_stats_json(config: dict, fah: dict | None, rosetta: dict | None, boinc: dict | None):
-    """Save all stats to JSON for the dashboard"""
+def build_stats(config: dict) -> dict:
+    """Build complete stats object from all sources"""
 
-    rosetta_start = config['profiles']['rosetta_at_home'].get('member_since', '2018-06-03')
-
-    # Use API member_since if available
-    if rosetta and rosetta.get('member_since'):
-        rosetta_start = rosetta['member_since']
+    print("=" * 60)
+    print("Scientific Computing Stats Fetcher")
+    print("=" * 60)
+    print()
 
     stats = {
         'last_updated': datetime.now().isoformat(),
         'generated_at': datetime.now().strftime('%Y-%m-%d %H:%M UTC'),
-
-        'folding_at_home': {
-            'score': fah.get('score', 0) if fah else 0,
-            'work_units': fah.get('wus', 0) if fah else 0,
-            'rank': fah.get('rank', 0) if fah else 0,
-            'total_users': fah.get('users', 0) if fah else 0,
-            'username': config['profiles']['folding_at_home']['username'],
-            'profile_url': f"https://stats.foldingathome.org/donor/{config['profiles']['folding_at_home']['username']}"
-        },
-
-        'rosetta_at_home': {
-            'credits': rosetta.get('total_credit', 0) if rosetta else 0,
-            'avg_credit': rosetta.get('expavg_credit', 0) if rosetta else 0,
-            'user_id': config['profiles']['rosetta_at_home']['user_id'],
-            'member_since': rosetta_start,
-            'days_active': calculate_days_since(rosetta_start),
-            'years_active': calculate_years_since(rosetta_start),
-            'profile_url': f"https://boinc.bakerlab.org/rosetta/view_profile.php?userid={config['profiles']['rosetta_at_home']['user_id']}",
-            'stats_url': f"https://boinc.bakerlab.org/rosetta/show_user.php?userid={config['profiles']['rosetta_at_home']['user_id']}"
-        },
-
-        'boinc': {
-            'user_id': config['profiles']['boinc']['user_id'],
-            'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{config['profiles']['boinc']['user_id']}",
-            'signature_url': f"https://boincstats.com/signature/-1/user/{config['profiles']['boinc']['user_id']}/sig.png"
-        },
-
-        'nobel_prize': {
-            'year': 2024,
-            'connection': 'Rosetta@home contributor',
-            'laureate': 'David Baker',
-            'institution': 'University of Washington',
-            'prize_date': '2024-10-09'
+        'projects': {},
+        'categories': {},
+        'totals': {
+            'boinc_credits': 0,
+            'boinc_projects': 0,
+            'earliest_join': None
         }
     }
 
-    # Calculate contribution timeline
-    nobel_date = datetime.strptime('2024-10-09', '%Y-%m-%d').date()
-    rosetta_date = datetime.strptime(rosetta_start, '%Y-%m-%d').date()
-    stats['rosetta_at_home']['days_before_nobel'] = (nobel_date - rosetta_date).days
-    stats['rosetta_at_home']['years_before_nobel'] = round((nobel_date - rosetta_date).days / 365.25, 1)
+    # Fetch Folding@home
+    fah_data = fetch_fah_data(config['profiles']['folding_at_home']['username'])
+    if fah_data:
+        stats['folding_at_home'] = {
+            'score': fah_data.get('score', 0),
+            'work_units': fah_data.get('wus', 0),
+            'rank': fah_data.get('rank', 0),
+            'total_users': fah_data.get('users', 0),
+            'username': config['profiles']['folding_at_home']['username'],
+            'profile_url': f"https://stats.foldingathome.org/donor/{config['profiles']['folding_at_home']['username']}"
+        }
 
-    # Save
+    print()
+
+    # Fetch each BOINC project
+    projects_config = config['profiles']['projects']
+
+    for key, proj_config in projects_config.items():
+        print()
+
+        live_data = fetch_boinc_project(key, proj_config)
+        member_since = proj_config.get('member_since', '2020-01-01')
+
+        project_stats = {
+            'name': proj_config['name'],
+            'category': proj_config['category'],
+            'description': proj_config['description'],
+            'url': proj_config['url'],
+            'member_since': member_since,
+            'days_active': calculate_days_since(member_since),
+            'years_active': calculate_years_since(member_since),
+        }
+
+        if proj_config.get('user_id'):
+            project_stats['user_id'] = proj_config['user_id']
+            project_stats['profile_url'] = f"{proj_config['url']}/show_user.php?userid={proj_config['user_id']}"
+
+        if live_data:
+            project_stats['credits'] = live_data['credits']
+            project_stats['avg_credit'] = live_data['avg_credit']
+            project_stats['live'] = True
+        elif proj_config.get('fallback_credits'):
+            project_stats['credits'] = proj_config['fallback_credits']
+            project_stats['live'] = False
+            print(f"  Using fallback credits for {proj_config['name']}")
+        else:
+            project_stats['credits'] = 0
+            project_stats['live'] = False
+
+        if proj_config.get('uses_image'):
+            project_stats['image_url'] = (
+                f"https://www.worldcommunitygrid.org/getDynamicImage.do?"
+                f"memberName={proj_config['username']}&mnOn=true&stat=1&"
+                f"imageNum=1&rankOn=true&projectsOn=true&special=true"
+            )
+            project_stats['member_id'] = proj_config.get('member_id')
+
+        if proj_config.get('nobel_connection'):
+            nobel_date = datetime.strptime('2024-10-09', '%Y-%m-%d').date()
+            join_date = datetime.strptime(member_since, '%Y-%m-%d').date()
+            project_stats['days_before_nobel'] = (nobel_date - join_date).days
+            project_stats['years_before_nobel'] = round((nobel_date - join_date).days / 365.25, 1)
+            project_stats['nobel_connection'] = True
+
+        stats['projects'][key] = project_stats
+
+        if project_stats.get('credits', 0) > 0:
+            stats['totals']['boinc_credits'] += project_stats['credits']
+            stats['totals']['boinc_projects'] += 1
+
+        if stats['totals']['earliest_join'] is None or member_since < stats['totals']['earliest_join']:
+            stats['totals']['earliest_join'] = member_since
+
+    categories = config.get('categories', {})
+    for cat_key, cat_config in categories.items():
+        cat_credits = sum(
+            p.get('credits', 0)
+            for p in stats['projects'].values()
+            if p.get('category') == cat_key
+        )
+        cat_projects = sum(
+            1 for p in stats['projects'].values()
+            if p.get('category') == cat_key
+        )
+        stats['categories'][cat_key] = {
+            'name': cat_config['name'],
+            'icon': cat_config['icon'],
+            'color': cat_config['color'],
+            'total_credits': cat_credits,
+            'project_count': cat_projects
+        }
+
+    stats['boinc_combined'] = {
+        'user_id': config['profiles']['boinc_combined']['user_id'],
+        'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{config['profiles']['boinc_combined']['user_id']}",
+        'signature_url': f"https://boincstats.com/signature/-1/user/{config['profiles']['boinc_combined']['user_id']}/sig.png"
+    }
+
+    if stats['totals']['earliest_join']:
+        stats['totals']['total_days'] = calculate_days_since(stats['totals']['earliest_join'])
+        stats['totals']['total_years'] = calculate_years_since(stats['totals']['earliest_join'])
+
+    return stats
+
+
+def save_stats(stats: dict):
+    """Save stats to JSON file"""
     data_dir = Path('data')
     data_dir.mkdir(exist_ok=True)
 
     with open(data_dir / 'stats.json', 'w', encoding='utf-8') as f:
         json.dump(stats, f, indent=2)
 
-    print(f"\nSaved stats.json")
-    return stats
+    print()
+    print(f"✓ Saved stats.json")
 
 
-def update_readme(config: dict, stats: dict):
+def update_readme(stats: dict):
     """Update README with live statistics"""
 
-    fah = stats['folding_at_home']
-    rosetta = stats['rosetta_at_home']
-    boinc = stats['boinc']
+    projects = stats['projects']
+    fah = stats.get('folding_at_home', {})
 
-    fah_percentile = 100 - (fah['rank'] / fah['total_users'] * 100) if fah['total_users'] > 0 else 0
+    sorted_projects = sorted(
+        projects.items(),
+        key=lambda x: x[1].get('credits', 0),
+        reverse=True
+    )
 
     content = f"""## Live Statistics
 
 Updated: {stats['generated_at']}
 
----
+### Overview
 
-### Rosetta@home
-
-Contributing to Nobel Prize-winning research since {rosetta['member_since']}.
-
-- {rosetta['credits']:,} credits earned
-- {rosetta['days_active']:,} days active ({rosetta['years_active']} years)
-- Joined {rosetta['years_before_nobel']} years before David Baker received the 2024 Nobel Prize in Chemistry
-
-[View Profile]({rosetta['profile_url']}) · [View Stats]({rosetta['stats_url']})
+- **{stats['totals']['boinc_projects']}** active BOINC projects
+- **{stats['totals']['boinc_credits']:,}** total BOINC credits
+- **{stats['totals']['total_years']}** years contributing
 
 ---
 
 ### Folding@home
 
-- {fah['score']:,} points
-- {fah['work_units']} work units completed
-- Rank #{fah['rank']:,} of {fah['total_users']:,} contributors (top {fah_percentile:.1f}%)
+- {fah.get('score', 0):,} points
+- {fah.get('work_units', 0)} work units
 
-[View Profile]({fah['profile_url']})
+[View Profile]({fah.get('profile_url', '#')})
 
 ---
 
-### BOINC Network
+### BOINC Projects
 
-Contributing to 12+ scientific projects.
+| Project | Credits | Member Since |
+|---------|--------:|--------------|
+"""
 
-[View Profile]({boinc['profile_url']})
+    for key, proj in sorted_projects:
+        credits_str = f"{proj.get('credits', 0):,}" if proj.get('credits', 0) > 0 else "—"
+        content += f"| [{proj['name']}]({proj.get('profile_url', proj['url'])}) | {credits_str} | {proj['member_since']} |\n"
 
-![BOINC Stats]({boinc['signature_url']})
+    content += f"""
+---
+
+### BOINC Combined
+
+![BOINC Stats]({stats['boinc_combined']['signature_url']})
+
+[View Full Profile]({stats['boinc_combined']['profile_url']})
 
 ---
 
@@ -257,47 +299,37 @@ Data fetched automatically via GitHub Actions.
         if start_marker in existing and end_marker in existing:
             before = existing.split(start_marker)[0]
             after = existing.split(end_marker)[1]
-            new_readme = f"{before}{start_marker}\n{content}\n{end_marker}{after}"
+            new_content = before + start_marker + "\n" + content + end_marker + after
+
+            with open(readme_file, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+
+            print(f"✓ Updated README.md")
         else:
-            new_readme = f"{existing}\n\n{start_marker}\n{content}\n{end_marker}\n"
+            print("  README markers not found, skipping update")
     else:
-        new_readme = f"# Scientific Computing Portfolio\n\n{start_marker}\n{content}\n{end_marker}\n"
-
-    with open(readme_file, 'w', encoding='utf-8') as f:
-        f.write(new_readme)
-
-    print(f"Updated README.md")
+        print("  README.md not found, skipping update")
 
 
 def main():
-    print("Scientific Computing Stats Fetcher")
-    print("=" * 50)
-
     config = load_config()
 
-    # Override from environment if set
     if os.environ.get('FAH_USERNAME'):
         config['profiles']['folding_at_home']['username'] = os.environ['FAH_USERNAME']
-    if os.environ.get('BOINC_USER_ID'):
-        config['profiles']['boinc']['user_id'] = os.environ['BOINC_USER_ID']
-    if os.environ.get('ROSETTA_USER_ID'):
-        config['profiles']['rosetta_at_home']['user_id'] = os.environ['ROSETTA_USER_ID']
+
+    stats = build_stats(config)
+    save_stats(stats)
+    update_readme(stats)
 
     print()
-    fah_data = fetch_fah_data(config['profiles']['folding_at_home']['username'])
-    print()
-    rosetta_data = fetch_rosetta_data(config['profiles']['rosetta_at_home']['user_id'])
-    print()
-    boinc_data = fetch_boinc_data(config['profiles']['boinc']['user_id'])
-
-    stats = save_stats_json(config, fah_data, rosetta_data, boinc_data)
-    update_readme(config, stats)
-
-    print("\n" + "=" * 50)
-    print("Done.")
-    print(f"  Rosetta: {stats['rosetta_at_home']['credits']:,} credits, {stats['rosetta_at_home']['days_active']} days")
-    print(f"  F@H: {stats['folding_at_home']['score']:,} points")
-    print(f"  BOINC: using signature image (live stats)")
+    print("=" * 60)
+    print("Summary")
+    print("=" * 60)
+    print(f"  Total BOINC Credits: {stats['totals']['boinc_credits']:,}")
+    print(f"  Active Projects: {stats['totals']['boinc_projects']}")
+    print(f"  Contributing since: {stats['totals']['earliest_join']}")
+    if stats.get('folding_at_home'):
+        print(f"  Folding@home: {stats['folding_at_home']['score']:,} points")
 
 
 if __name__ == "__main__":

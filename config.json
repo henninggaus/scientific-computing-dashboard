@@ -3,16 +3,95 @@
     "folding_at_home": {
       "username": "HenningSarrus"
     },
-    "rosetta_at_home": {
-      "user_id": "2003572",
-      "member_since": "2018-06-03",
-      "team": "MEDIA DATABASE"
-    },
-    "boinc": {
+    "boinc_combined": {
       "user_id": "38537905500"
+    },
+    "projects": {
+      "rosetta": {
+        "name": "Rosetta@home",
+        "category": "biology",
+        "description": "Protein structure prediction",
+        "url": "https://boinc.bakerlab.org/rosetta",
+        "user_id": "2003572",
+        "member_since": "2018-06-03",
+        "nobel_connection": true
+      },
+      "gpugrid": {
+        "name": "GPUGRID",
+        "category": "biology",
+        "description": "Molecular dynamics simulations",
+        "url": "https://www.gpugrid.net/gpugrid",
+        "user_id": "543812",
+        "member_since": "2019-04-20"
+      },
+      "sidock": {
+        "name": "SiDock@home",
+        "category": "biology",
+        "description": "Drug discovery for SARS-CoV-2",
+        "url": "https://www.sidock.si/sidock",
+        "user_id": "13871",
+        "member_since": "2025-04-10"
+      },
+      "yoyo": {
+        "name": "yoyo@home",
+        "category": "math",
+        "description": "Mathematical research (ECM, Siever)",
+        "url": "https://www.rechenkraft.net/yoyo",
+        "user_id": "319246",
+        "member_since": "2018-08-11"
+      },
+      "amicable": {
+        "name": "Amicable Numbers",
+        "category": "math",
+        "description": "Finding amicable number pairs",
+        "url": "https://sech.me/boinc/Amicable",
+        "user_id": "22852",
+        "member_since": "2019-10-05"
+      },
+      "ramanujan": {
+        "name": "Ramanujan Machine",
+        "category": "math",
+        "description": "Discovering mathematical formulas",
+        "url": "https://rnma.xyz/boinc",
+        "user_id": "2554988",
+        "member_since": "2025-03-29"
+      },
+      "climateprediction": {
+        "name": "Climateprediction.net",
+        "category": "earth",
+        "description": "Climate modeling",
+        "url": "https://www.cpdn.org",
+        "cpid": "82fa2d6e5e037a0eb3ea4e05c34779f0",
+        "member_since": "2019-08-05",
+        "fallback_credits": 898928
+      },
+      "wcg": {
+        "name": "World Community Grid",
+        "category": "biology",
+        "description": "Medical & humanitarian research",
+        "url": "https://www.worldcommunitygrid.org",
+        "member_id": "1178154",
+        "username": "henningsarrus",
+        "member_since": "2025-11-15",
+        "uses_image": true
+      }
     }
   },
-  "contribution": {
-    "start_year": 2018
+  "categories": {
+    "biology": {
+      "name": "Biology & Medicine",
+      "icon": "🧬",
+      "color": "#22c55e"
+    },
+    "math": {
+      "name": "Mathematics",
+      "icon": "🔢",
+      "color": "#3b82f6"
+    },
+    "earth": {
+      "name": "Earth Sciences",
+      "icon": "🌍",
+      "color": "#f59e0b"
+    }
   }
 }
