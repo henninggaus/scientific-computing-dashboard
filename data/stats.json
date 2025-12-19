@@ -1,6 +1,6 @@
 {
-  "last_updated": "2025-12-19T12:13:25.662334",
-  "generated_at": "2025-12-19 12:13 UTC",
+  "last_updated": "2025-12-19T16:09:26.303779",
+  "generated_at": "2025-12-19 16:09 UTC",
   "projects": {
     "rosetta": {
       "name": "Rosetta@home",
@@ -12,8 +12,8 @@
       "years_active": 7.5,
       "user_id": "2003572",
       "profile_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
-      "credits": 566187,
-      "avg_credit": 9277.65,
+      "credits": 573868,
+      "avg_credit": 9873.1,
       "live": true,
       "days_before_nobel": 2320,
       "years_before_nobel": 6.4,
@@ -72,7 +72,7 @@
       "user_id": "22852",
       "profile_url": "https://sech.me/boinc/Amicable/show_user.php?userid=22852",
       "credits": 2351650,
-      "avg_credit": 1601.34,
+      "avg_credit": 1313.64,
       "live": true
     },
     "ramanujan": {
@@ -99,19 +99,6 @@
       "years_active": 6.4,
       "credits": 898928,
       "live": false
-    },
-    "wcg": {
-      "name": "World Community Grid",
-      "category": "biology",
-      "description": "Medical & humanitarian research",
-      "url": "https://www.worldcommunitygrid.org",
-      "member_since": "2025-11-15",
-      "days_active": 34,
-      "years_active": 0.1,
-      "credits": 0,
-      "live": false,
-      "image_url": "https://www.worldcommunitygrid.org/getDynamicImage.do?memberName=henningsarrus&mnOn=true&stat=1&imageNum=1&rankOn=true&projectsOn=true&special=true",
-      "member_id": "1178154"
     }
   },
   "categories": {
@@ -119,8 +106,8 @@
       "name": "Biology & Medicine",
       "icon": "\ud83e\uddec",
       "color": "#22c55e",
-      "total_credits": 8537134,
-      "project_count": 4
+      "total_credits": 8544815,
+      "project_count": 3
     },
     "math": {
       "name": "Mathematics",
@@ -138,7 +125,7 @@
     }
   },
   "totals": {
-    "boinc_credits": 11904773,
+    "boinc_credits": 11912454,
     "boinc_projects": 7,
     "earliest_join": "2018-06-03",
     "total_days": 2756,
@@ -147,7 +134,7 @@
   "folding_at_home": {
     "score": 7908286,
     "work_units": 149,
-    "rank": 164590,
+    "rank": 164591,
     "total_users": 3021483,
     "username": "HenningSarrus",
     "profile_url": "https://stats.foldingathome.org/donor/HenningSarrus"
