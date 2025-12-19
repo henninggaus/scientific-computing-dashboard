@@ -64,6 +64,54 @@
         "cpid": "82fa2d6e5e037a0eb3ea4e05c34779f0",
         "member_since": "2019-08-05",
         "fallback_credits": 898928
+      },
+      "primegrid": {
+        "name": "PrimeGrid",
+        "category": "math",
+        "description": "Searching for large prime numbers",
+        "url": "https://www.primegrid.com",
+        "user_id": "1188549",
+        "member_since": "2019-09-12"
+      },
+      "milkyway": {
+        "name": "MilkyWay@home",
+        "category": "astronomy",
+        "description": "Modeling the Milky Way galaxy",
+        "url": "https://milkyway.cs.rpi.edu/milkyway",
+        "user_id": "1365700",
+        "member_since": "2019-10-05"
+      },
+      "asteroids": {
+        "name": "Asteroids@home",
+        "category": "astronomy",
+        "description": "Asteroid shape and spin modeling",
+        "url": "https://asteroidsathome.net/boinc",
+        "user_id": "403666",
+        "member_since": "2018-08-11"
+      },
+      "collatz": {
+        "name": "Collatz Conjecture",
+        "category": "math",
+        "description": "Testing the Collatz conjecture",
+        "url": "https://boinc.thesonntags.com/collatz",
+        "member_since": "2019-08-05",
+        "fallback_credits": 23165561
+      },
+      "seti": {
+        "name": "SETI@home",
+        "category": "astronomy",
+        "description": "Search for extraterrestrial intelligence",
+        "url": "https://setiathome.berkeley.edu",
+        "member_since": "2018-08-11",
+        "fallback_credits": 21928
+      },
+      "cosmology": {
+        "name": "Cosmology@Home",
+        "category": "astronomy",
+        "description": "Cosmological models of the universe",
+        "url": "https://www.cosmologyathome.org",
+        "member_since": "2019-08-05",
+        "fallback_credits": 36
       }
     }
   },
@@ -82,6 +130,11 @@
       "name": "Earth Sciences",
       "icon": "🌍",
       "color": "#f59e0b"
+    },
+    "astronomy": {
+      "name": "Astronomy & Space",
+      "icon": "🔭",
+      "color": "#8b5cf6"
     }
   }
 }
