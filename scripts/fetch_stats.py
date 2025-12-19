@@ -234,12 +234,33 @@ def update_readme(stats: dict):
 
     projects = stats['projects']
     fah = stats.get('folding_at_home', {})
+    rosetta = projects.get('rosetta', {})
 
+    # Sort projects by credits (excluding rosetta, shown separately)
     sorted_projects = sorted(
-        projects.items(),
+        [(k, v) for k, v in projects.items() if k != 'rosetta'],
         key=lambda x: x[1].get('credits', 0),
         reverse=True
     )
+
+    # Nobel section
+    nobel_section = ""
+    if rosetta.get('nobel_connection'):
+        nobel_section = f"""
+### 🏆 Nobel Prize Connection
+
+> **Rosetta@home** — Contributing to David Baker's Nobel Prize-winning research
+
+I joined Rosetta@home on **{rosetta['member_since']}** — **{rosetta.get('years_before_nobel', 6.4)} years before** David Baker received the **2024 Nobel Prize in Chemistry** for computational protein design.
+
+- **{rosetta.get('credits', 0):,}** credits earned
+- **{rosetta.get('days_active', 0):,}** days contributing ({rosetta.get('years_active', 0)} years)
+
+[View Rosetta Profile]({rosetta.get('profile_url', '#')})
+
+---
+
+"""
 
     content = f"""## Live Statistics
 
@@ -252,7 +273,7 @@ Updated: {stats['generated_at']}
 - **{stats['totals']['total_years']}** years contributing
 
 ---
-
+{nobel_section}
 ### Folding@home
 
 - {fah.get('score', 0):,} points
@@ -262,7 +283,7 @@ Updated: {stats['generated_at']}
 
 ---
 
-### BOINC Projects
+### Other BOINC Projects
 
 | Project | Credits | Member Since |
 |---------|--------:|--------------|

@@ -64,16 +64,6 @@
         "cpid": "82fa2d6e5e037a0eb3ea4e05c34779f0",
         "member_since": "2019-08-05",
         "fallback_credits": 898928
-      },
-      "wcg": {
-        "name": "World Community Grid",
-        "category": "biology",
-        "description": "Medical & humanitarian research",
-        "url": "https://www.worldcommunitygrid.org",
-        "member_id": "1178154",
-        "username": "henningsarrus",
-        "member_since": "2025-11-15",
-        "uses_image": true
       }
     }
   },
