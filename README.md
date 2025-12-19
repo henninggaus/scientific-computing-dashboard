@@ -19,44 +19,49 @@ I contribute idle computing power across multiple platforms to accelerate scient
 <!-- LIVE_STATS_START -->
 ## Live Statistics
 
-Updated: 2025-12-19 00:24 UTC
+Updated: 2025-12-19 12:13 UTC
 
----
+### Overview
 
-### Rosetta@home
-
-Contributing to Nobel Prize-winning research since 2018-06-03.
-
-- 551,913 credits earned
-- 2,756 days active (7.5 years)
-- Joined 6.4 years before David Baker received the 2024 Nobel Prize in Chemistry
-
-[View Profile](https://boinc.bakerlab.org/rosetta/view_profile.php?userid=2003572) · [View Stats](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572)
+- **7** active BOINC projects
+- **11,904,773** total BOINC credits
+- **7.5** years contributing
 
 ---
 
 ### Folding@home
 
 - 7,908,286 points
-- 149 work units completed
-- Rank #164,586 of 3,021,483 contributors (top 94.6%)
+- 149 work units
 
 [View Profile](https://stats.foldingathome.org/donor/HenningSarrus)
 
 ---
 
-### BOINC Network
+### BOINC Projects
 
-Contributing to 12+ scientific projects.
+| Project | Credits | Member Since |
+|---------|--------:|--------------|
+| [GPUGRID](https://www.gpugrid.net/gpugrid/show_user.php?userid=543812) | 6,450,000 | 2019-04-20 |
+| [Amicable Numbers](https://sech.me/boinc/Amicable/show_user.php?userid=22852) | 2,351,650 | 2019-10-05 |
+| [SiDock@home](https://www.sidock.si/sidock/show_user.php?userid=13871) | 1,520,947 | 2025-04-10 |
+| [Climateprediction.net](https://www.cpdn.org) | 898,928 | 2019-08-05 |
+| [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572) | 566,187 | 2018-06-03 |
+| [yoyo@home](https://www.rechenkraft.net/yoyo/show_user.php?userid=319246) | 101,050 | 2018-08-11 |
+| [Ramanujan Machine](https://rnma.xyz/boinc/show_user.php?userid=2554988) | 16,011 | 2025-03-29 |
+| [World Community Grid](https://www.worldcommunitygrid.org) | — | 2025-11-15 |
 
-[View Profile](https://boincstats.com/en/stats/-1/user/detail/38537905500)
+---
+
+### BOINC Combined
 
 ![BOINC Stats](https://boincstats.com/signature/-1/user/38537905500/sig.png)
+
+[View Full Profile](https://boincstats.com/en/stats/-1/user/detail/38537905500)
 
 ---
 
 Data fetched automatically via GitHub Actions.
-
 
 <!-- LIVE_STATS_END -->
 
