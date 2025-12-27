@@ -19,12 +19,12 @@ I contribute idle computing power across multiple platforms to accelerate scient
 <!-- LIVE_STATS_START -->
 ## Live Statistics
 
-Updated: 2025-12-26 00:24 UTC
+Updated: 2025-12-27 00:23 UTC
 
 ### Overview
 
-- **12** active BOINC projects
-- **35,563,470** total BOINC credits
+- **13** active BOINC projects
+- **35,685,398** total BOINC credits
 - **7.6** years contributing
 
 ---
@@ -35,8 +35,8 @@ Updated: 2025-12-26 00:24 UTC
 
 I joined Rosetta@home on **2018-06-03** — **6.4 years before** David Baker received the **2024 Nobel Prize in Chemistry** for computational protein design.
 
-- **688,811** credits earned
-- **2,763** days contributing (7.6 years)
+- **734,899** credits earned
+- **2,764** days contributing (7.6 years)
 
 [View Rosetta Profile](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572)
 
@@ -64,10 +64,10 @@ I joined Rosetta@home on **2018-06-03** — **6.4 years before** David Baker rec
 | [PrimeGrid](https://www.primegrid.com/show_user.php?userid=1188549) | 224,437 | 2019-09-12 |
 | [MilkyWay@home](https://milkyway.cs.rpi.edu/milkyway/show_user.php?userid=1365700) | 124,111 | 2019-10-05 |
 | [yoyo@home](https://www.rechenkraft.net/yoyo/show_user.php?userid=319246) | 101,050 | 2018-08-11 |
+| [Asteroids@home](https://asteroidsathome.net/boinc/show_user.php?userid=403666) | 75,840 | 2018-08-11 |
 | [SETI@home](https://setiathome.berkeley.edu) | 21,928 | 2018-08-11 |
 | [Ramanujan Machine](https://rnma.xyz/boinc/show_user.php?userid=2554988) | 16,011 | 2025-03-29 |
 | [Cosmology@Home](https://www.cosmologyathome.org) | 36 | 2019-08-05 |
-| [Asteroids@home](https://asteroidsathome.net/boinc/show_user.php?userid=403666) | — | 2018-08-11 |
 
 ---
 
