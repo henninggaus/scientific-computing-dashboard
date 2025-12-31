@@ -19,12 +19,12 @@ I contribute idle computing power across multiple platforms to accelerate scient
 <!-- LIVE_STATS_START -->
 ## Live Statistics
 
-Updated: 2025-12-30 00:24 UTC
+Updated: 2025-12-31 00:24 UTC
 
 ### Overview
 
 - **13** active BOINC projects
-- **35,848,320** total BOINC credits
+- **35,907,093** total BOINC credits
 - **7.6** years contributing
 
 ---
@@ -35,8 +35,8 @@ Updated: 2025-12-30 00:24 UTC
 
 I joined Rosetta@home on **2018-06-03** — **6.4 years before** David Baker received the **2024 Nobel Prize in Chemistry** for computational protein design.
 
-- **897,821** credits earned
-- **2,767** days contributing (7.6 years)
+- **956,594** credits earned
+- **2,768** days contributing (7.6 years)
 
 [View Rosetta Profile](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572)
 
