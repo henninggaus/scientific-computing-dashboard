@@ -19,12 +19,12 @@ I contribute idle computing power across multiple platforms to accelerate scient
 <!-- LIVE_STATS_START -->
 ## Live Statistics
 
-Updated: 2026-01-07 00:24 UTC
+Updated: 2026-01-08 00:25 UTC
 
 ### Overview
 
 - **13** active BOINC projects
-- **36,489,600** total BOINC credits
+- **36,606,594** total BOINC credits
 - **7.6** years contributing
 
 ---
@@ -36,7 +36,7 @@ Updated: 2026-01-07 00:24 UTC
 I joined Rosetta@home on **2018-06-03** — **6.4 years before** David Baker received the **2024 Nobel Prize in Chemistry** for computational protein design.
 
 - **1,064,227** credits earned
-- **2,775** days contributing (7.6 years)
+- **2,776** days contributing (7.6 years)
 
 [View Rosetta Profile](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572)
 
@@ -59,7 +59,7 @@ I joined Rosetta@home on **2018-06-03** — **6.4 years before** David Baker rec
 | [Collatz Conjecture](https://boinc.thesonntags.com/collatz) | 23,165,561 | 2019-08-05 |
 | [GPUGRID](https://www.gpugrid.net/gpugrid/show_user.php?userid=543812) | 6,450,000 | 2019-04-20 |
 | [Amicable Numbers](https://sech.me/boinc/Amicable/show_user.php?userid=22852) | 2,351,650 | 2019-10-05 |
-| [SiDock@home](https://www.sidock.si/sidock/show_user.php?userid=13871) | 1,995,821 | 2025-04-10 |
+| [SiDock@home](https://www.sidock.si/sidock/show_user.php?userid=13871) | 2,112,815 | 2025-04-10 |
 | [Climateprediction.net](https://www.cpdn.org) | 898,928 | 2019-08-05 |
 | [PrimeGrid](https://www.primegrid.com/show_user.php?userid=1188549) | 224,437 | 2019-09-12 |
 | [MilkyWay@home](https://milkyway.cs.rpi.edu/milkyway/show_user.php?userid=1365700) | 124,111 | 2019-10-05 |
