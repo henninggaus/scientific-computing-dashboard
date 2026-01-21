@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-20T00:24:18.381293",
-  "generated_at": "2026-01-20 00:24 UTC",
+  "last_updated": "2026-01-21T00:25:52.165673",
+  "generated_at": "2026-01-21 00:25 UTC",
   "projects": {
     "rosetta": {
       "name": "Rosetta@home",
@@ -8,7 +8,7 @@
       "description": "Protein structure prediction",
       "url": "https://boinc.bakerlab.org/rosetta",
       "member_since": "2018-06-03",
-      "days_active": 2788,
+      "days_active": 2789,
       "years_active": 7.6,
       "user_id": "2003572",
       "profile_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
@@ -25,7 +25,7 @@
       "description": "Molecular dynamics simulations",
       "url": "https://www.gpugrid.net/gpugrid",
       "member_since": "2019-04-20",
-      "days_active": 2467,
+      "days_active": 2468,
       "years_active": 6.8,
       "user_id": "543812",
       "profile_url": "https://www.gpugrid.net/gpugrid/show_user.php?userid=543812",
@@ -39,12 +39,12 @@
       "description": "Drug discovery for SARS-CoV-2",
       "url": "https://www.sidock.si/sidock",
       "member_since": "2025-04-10",
-      "days_active": 285,
+      "days_active": 286,
       "years_active": 0.8,
       "user_id": "13871",
       "profile_url": "https://www.sidock.si/sidock/show_user.php?userid=13871",
       "credits": 2821426,
-      "avg_credit": 55540.88,
+      "avg_credit": 42766.51,
       "live": true
     },
     "yoyo": {
@@ -53,13 +53,12 @@
       "description": "Mathematical research (ECM, Siever)",
       "url": "https://www.rechenkraft.net/yoyo",
       "member_since": "2018-08-11",
-      "days_active": 2719,
+      "days_active": 2720,
       "years_active": 7.4,
       "user_id": "319246",
       "profile_url": "https://www.rechenkraft.net/yoyo/show_user.php?userid=319246",
-      "credits": 101050,
-      "avg_credit": 0.07,
-      "live": true
+      "credits": 0,
+      "live": false
     },
     "amicable": {
       "name": "Amicable Numbers",
@@ -67,12 +66,12 @@
       "description": "Finding amicable number pairs",
       "url": "https://sech.me/boinc/Amicable",
       "member_since": "2019-10-05",
-      "days_active": 2299,
+      "days_active": 2300,
       "years_active": 6.3,
       "user_id": "22852",
       "profile_url": "https://sech.me/boinc/Amicable/show_user.php?userid=22852",
       "credits": 2351650,
-      "avg_credit": 61.0,
+      "avg_credit": 55.25,
       "live": true
     },
     "ramanujan": {
@@ -81,7 +80,7 @@
       "description": "Discovering mathematical formulas",
       "url": "https://rnma.xyz/boinc",
       "member_since": "2025-03-29",
-      "days_active": 297,
+      "days_active": 298,
       "years_active": 0.8,
       "user_id": "2554988",
       "profile_url": "https://rnma.xyz/boinc/show_user.php?userid=2554988",
@@ -95,7 +94,7 @@
       "description": "Climate modeling",
       "url": "https://www.cpdn.org",
       "member_since": "2019-08-05",
-      "days_active": 2360,
+      "days_active": 2361,
       "years_active": 6.5,
       "credits": 898928,
       "live": false
@@ -106,7 +105,7 @@
       "description": "Searching for large prime numbers",
       "url": "https://www.primegrid.com",
       "member_since": "2019-09-12",
-      "days_active": 2322,
+      "days_active": 2323,
       "years_active": 6.4,
       "user_id": "1188549",
       "profile_url": "https://www.primegrid.com/show_user.php?userid=1188549",
@@ -120,7 +119,7 @@
       "description": "Modeling the Milky Way galaxy",
       "url": "https://milkyway.cs.rpi.edu/milkyway",
       "member_since": "2019-10-05",
-      "days_active": 2299,
+      "days_active": 2300,
       "years_active": 6.3,
       "user_id": "1365700",
       "profile_url": "https://milkyway.cs.rpi.edu/milkyway/show_user.php?userid=1365700",
@@ -134,13 +133,12 @@
       "description": "Asteroid shape and spin modeling",
       "url": "https://asteroidsathome.net/boinc",
       "member_since": "2018-08-11",
-      "days_active": 2719,
+      "days_active": 2720,
       "years_active": 7.4,
       "user_id": "403666",
       "profile_url": "https://asteroidsathome.net/boinc/show_user.php?userid=403666",
-      "credits": 75840,
-      "avg_credit": 0.09,
-      "live": true
+      "credits": 0,
+      "live": false
     },
     "collatz": {
       "name": "Collatz Conjecture",
@@ -148,7 +146,7 @@
       "description": "Testing the Collatz conjecture",
       "url": "https://boinc.thesonntags.com/collatz",
       "member_since": "2019-08-05",
-      "days_active": 2360,
+      "days_active": 2361,
       "years_active": 6.5,
       "credits": 23165561,
       "live": false
@@ -159,7 +157,7 @@
       "description": "Search for extraterrestrial intelligence",
       "url": "https://setiathome.berkeley.edu",
       "member_since": "2018-08-11",
-      "days_active": 2719,
+      "days_active": 2720,
       "years_active": 7.4,
       "credits": 21928,
       "live": false
@@ -170,7 +168,7 @@
       "description": "Cosmological models of the universe",
       "url": "https://www.cosmologyathome.org",
       "member_since": "2019-08-05",
-      "days_active": 2360,
+      "days_active": 2361,
       "years_active": 6.5,
       "credits": 36,
       "live": false
@@ -188,7 +186,7 @@
       "name": "Mathematics",
       "icon": "\ud83d\udd22",
       "color": "#3b82f6",
-      "total_credits": 25858709,
+      "total_credits": 25757659,
       "project_count": 5
     },
     "earth": {
@@ -202,21 +200,21 @@
       "name": "Astronomy & Space",
       "icon": "\ud83d\udd2d",
       "color": "#8b5cf6",
-      "total_credits": 221915,
+      "total_credits": 146075,
       "project_count": 4
     }
   },
   "totals": {
-    "boinc_credits": 37315205,
-    "boinc_projects": 13,
+    "boinc_credits": 37138315,
+    "boinc_projects": 11,
     "earliest_join": "2018-06-03",
-    "total_days": 2788,
+    "total_days": 2789,
     "total_years": 7.6
   },
   "folding_at_home": {
     "score": 7908286,
     "work_units": 149,
-    "rank": 165082,
+    "rank": 165099,
     "total_users": 3021483,
     "username": "HenningSarrus",
     "profile_url": "https://stats.foldingathome.org/donor/HenningSarrus"
