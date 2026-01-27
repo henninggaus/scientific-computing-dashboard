@@ -2,7 +2,7 @@
 """
 Scientific Computing Stats Fetcher
 Fetches live statistics from multiple BOINC projects and Folding@home
-Now with historical tracking and trend calculations!
+Generates complete README from config.json - no hardcoded values.
 """
 
 import asyncio
@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Optional
 
 # Configuration
-HISTORY_MAX_DAYS = 365  # Keep up to 1 year of history
+HISTORY_MAX_DAYS = 365
 HISTORY_FILE = Path('data/stats.json')
 
 
@@ -119,25 +119,17 @@ async def fetch_all_projects(config: dict) -> tuple[Optional[dict], dict[str, Op
     print()
 
     async with aiohttp.ClientSession() as session:
-        # Create tasks for all fetches
-        tasks = []
-
-        # Folding@home task
         fah_username = config['profiles']['folding_at_home']['username']
         fah_task = fetch_fah_data(session, fah_username)
 
-        # BOINC project tasks
         projects_config = config['profiles']['projects']
         boinc_tasks = [
             fetch_boinc_project(session, key, proj_config)
             for key, proj_config in projects_config.items()
         ]
 
-        # Run all concurrently
         fah_result = await fah_task
         boinc_results = await asyncio.gather(*boinc_tasks)
-
-        # Convert BOINC results to dict
         boinc_data = {key: data for key, data in boinc_results}
 
         return fah_result, boinc_data
@@ -159,14 +151,15 @@ def build_current_stats(config: dict, fah_data: Optional[dict], boinc_data: dict
     }
 
     # Folding@home
+    fah_username = config['profiles']['folding_at_home']['username']
     if fah_data:
         stats['folding_at_home'] = {
             'score': fah_data.get('score', 0),
             'work_units': fah_data.get('wus', 0),
             'rank': fah_data.get('rank', 0),
             'total_users': fah_data.get('users', 0),
-            'username': config['profiles']['folding_at_home']['username'],
-            'profile_url': f"https://stats.foldingathome.org/donor/{config['profiles']['folding_at_home']['username']}"
+            'username': fah_username,
+            'profile_url': f"https://stats.foldingathome.org/donor/{fah_username}"
         }
 
     # Process BOINC projects
@@ -239,10 +232,11 @@ def build_current_stats(config: dict, fah_data: Optional[dict], boinc_data: dict
         }
 
     # BOINC combined profile
+    boinc_user_id = config['profiles']['boinc_combined']['user_id']
     stats['boinc_combined'] = {
-        'user_id': config['profiles']['boinc_combined']['user_id'],
-        'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{config['profiles']['boinc_combined']['user_id']}",
-        'signature_url': f"https://boincstats.com/signature/-1/user/{config['profiles']['boinc_combined']['user_id']}/sig.png"
+        'user_id': boinc_user_id,
+        'profile_url': f"https://boincstats.com/en/stats/-1/user/detail/{boinc_user_id}",
+        'signature_url': f"https://boincstats.com/signature/-1/user/{boinc_user_id}/sig.png"
     }
 
     if stats['totals']['earliest_join']:
@@ -265,7 +259,6 @@ def create_history_entry(current_stats: dict) -> dict:
         'projects': {}
     }
 
-    # Store per-project credits for detailed trends
     for key, proj in current_stats['projects'].items():
         if proj.get('credits', 0) > 0:
             entry['projects'][key] = proj['credits']
@@ -279,16 +272,10 @@ def update_history(existing_stats: dict, new_entry: dict) -> list[dict]:
     history = existing_stats.get('history', [])
     today = new_entry['date']
 
-    # Remove any existing entry for today (in case of multiple runs)
     history = [h for h in history if h['date'] != today]
-
-    # Add new entry
     history.append(new_entry)
-
-    # Sort by date (oldest first)
     history.sort(key=lambda x: x['date'])
 
-    # Trim to max days
     cutoff_date = (date.today() - timedelta(days=HISTORY_MAX_DAYS)).isoformat()
     history = [h for h in history if h['date'] >= cutoff_date]
 
@@ -309,14 +296,11 @@ def calculate_trends(history: list[dict], current_stats: dict) -> dict:
         trends['message'] = 'Need at least 2 days of data for trends'
         return trends
 
-    # Current values
     current_boinc = current_stats['totals']['boinc_credits']
     current_fah = current_stats.get('folding_at_home', {}).get('score', 0)
 
-    # Helper to get credits N days ago
     def get_value_days_ago(days: int, key: str) -> Optional[int]:
         target_date = (date.today() - timedelta(days=days)).isoformat()
-        # Find closest entry on or before target date
         candidates = [h for h in history if h['date'] <= target_date]
         if candidates:
             return candidates[-1].get(key, 0)
@@ -325,25 +309,21 @@ def calculate_trends(history: list[dict], current_stats: dict) -> dict:
     # BOINC Trends
     boinc_trends = {}
 
-    # Last 7 days
     boinc_7d_ago = get_value_days_ago(7, 'boinc_credits')
     if boinc_7d_ago is not None:
         boinc_trends['last_7_days'] = current_boinc - boinc_7d_ago
         boinc_trends['avg_per_day_7d'] = round(boinc_trends['last_7_days'] / 7)
 
-    # Last 30 days
     boinc_30d_ago = get_value_days_ago(30, 'boinc_credits')
     if boinc_30d_ago is not None:
         boinc_trends['last_30_days'] = current_boinc - boinc_30d_ago
         boinc_trends['avg_per_day_30d'] = round(boinc_trends['last_30_days'] / 30)
 
-    # Last 90 days
     boinc_90d_ago = get_value_days_ago(90, 'boinc_credits')
     if boinc_90d_ago is not None:
         boinc_trends['last_90_days'] = current_boinc - boinc_90d_ago
         boinc_trends['avg_per_day_90d'] = round(boinc_trends['last_90_days'] / 90)
 
-    # All-time average (from history)
     if len(history) >= 2:
         first_entry = history[0]
         days_tracked = (date.today() - date.fromisoformat(first_entry['date'])).days
@@ -357,7 +337,6 @@ def calculate_trends(history: list[dict], current_stats: dict) -> dict:
     milestones = []
     milestone_targets = [40_000_000, 50_000_000, 75_000_000, 100_000_000]
 
-    # Use best available daily average for projection
     daily_avg = (
             boinc_trends.get('avg_per_day_30d') or
             boinc_trends.get('avg_per_day_7d') or
@@ -396,14 +375,13 @@ def calculate_trends(history: list[dict], current_stats: dict) -> dict:
 
     trends['fah'] = fah_trends
 
-    # Most active projects (by recent credit gain)
+    # Most active projects
     project_activity = []
     for key, proj in current_stats['projects'].items():
         current_credits = proj.get('credits', 0)
         if current_credits == 0:
             continue
 
-        # Find credits 30 days ago for this project
         credits_30d_ago = None
         target_date = (date.today() - timedelta(days=30)).isoformat()
         candidates = [h for h in history if h['date'] <= target_date]
@@ -420,11 +398,128 @@ def calculate_trends(history: list[dict], current_stats: dict) -> dict:
                     'avg_per_day': round(gain / 30)
                 })
 
-    # Sort by 30-day gain
     project_activity.sort(key=lambda x: x['gain_30d'], reverse=True)
-    trends['most_active_projects'] = project_activity[:5]  # Top 5
+    trends['most_active_projects'] = project_activity[:5]
 
     return trends
+
+
+def generate_readme(config: dict, current_stats: dict) -> str:
+    """Generate complete README from config and live stats"""
+
+    fah_username = config['profiles']['folding_at_home']['username']
+    fah_profile = f"https://stats.foldingathome.org/donor/{fah_username}"
+    boinc_user_id = config['profiles']['boinc_combined']['user_id']
+    boinc_profile = f"https://boincstats.com/en/stats/-1/user/detail/{boinc_user_id}"
+    boinc_sig = f"https://boincstats.com/signature/-1/user/{boinc_user_id}/sig.png"
+
+    fah = current_stats.get('folding_at_home', {})
+    projects = current_stats['projects']
+    totals = current_stats['totals']
+
+    # Find Nobel project (Rosetta)
+    nobel_project = None
+    for key, proj in projects.items():
+        if proj.get('nobel_connection'):
+            nobel_project = proj
+            break
+
+    # Sort projects by credits
+    sorted_projects = sorted(
+        projects.items(),
+        key=lambda x: x[1].get('credits', 0),
+        reverse=True
+    )
+
+    # Build project table
+    project_rows = []
+    for key, proj in sorted_projects:
+        name = proj['name']
+        url = proj.get('profile_url', proj['url'])
+        credits = proj.get('credits', 0)
+        credits_str = f"{credits:,}" if credits > 0 else "—"
+        since = proj['member_since'][:7]  # YYYY-MM format
+        project_rows.append(f"| [{name}]({url}) | {credits_str} | {since} |")
+
+    project_table = "\n".join(project_rows)
+
+    # Nobel section
+    nobel_section = ""
+    if nobel_project:
+        nobel_section = f"""
+### Nobel Prize Connection
+
+I joined [{nobel_project['name']}]({nobel_project.get('profile_url', nobel_project['url'])}) in {nobel_project['member_since'][:7]} — about {nobel_project.get('years_before_nobel', 6)} years before David Baker received the 2024 Nobel Prize in Chemistry for computational protein design.
+
+- **{nobel_project.get('credits', 0):,}** credits
+- **{nobel_project.get('days_active', 0):,}** days contributing
+
+---
+"""
+
+    readme = f"""# Scientific Computing Portfolio
+
+I contribute idle computing power to distributed research projects — protein folding, number theory, astronomy, and more. This repo tracks my contributions automatically.
+
+---
+
+## Statistics
+
+*Updated: {current_stats['generated_at']}*
+
+- **{totals['boinc_projects']}** active BOINC projects
+- **{totals['boinc_credits']:,}** total BOINC credits
+- **{totals.get('total_years', 0)}** years contributing
+
+---
+{nobel_section}
+### Folding@home
+
+- {fah.get('score', 0):,} points
+- {fah.get('work_units', 0)} work units
+
+[Profile]({fah_profile})
+
+---
+
+### BOINC Projects
+
+| Project | Credits | Since |
+|---------|--------:|-------|
+{project_table}
+
+![BOINC Stats]({boinc_sig})
+
+[Combined Profile]({boinc_profile})
+
+---
+
+## How it works
+
+A GitHub Action runs daily, fetches live data from the Folding@home and BOINC APIs, and updates this README. No hardcoded numbers — everything comes from `config.json` and live API calls.
+
+```
+GitHub Actions (daily)
+       │
+       ▼
+  fetch_stats.py ──► APIs (F@H, BOINC projects)
+       │
+       ├──► README.md (this file)
+       └──► data/stats.json
+```
+
+---
+
+## Join in
+
+- [Folding@home](https://foldingathome.org/) — protein folding for disease research
+- [BOINC](https://boinc.berkeley.edu/) — dozens of research projects to choose from
+
+---
+
+MIT License
+"""
+    return readme
 
 
 def save_stats(stats: dict):
@@ -438,154 +533,46 @@ def save_stats(stats: dict):
     print(f"✓ Saved {HISTORY_FILE}")
 
 
-def update_readme(current_stats: dict):
-    """Update README with live statistics"""
-
-    projects = current_stats['projects']
-    fah = current_stats.get('folding_at_home', {})
-    rosetta = projects.get('rosetta', {})
-
-    # Sort projects by credits (excluding rosetta, shown separately)
-    sorted_projects = sorted(
-        [(k, v) for k, v in projects.items() if k != 'rosetta'],
-        key=lambda x: x[1].get('credits', 0),
-        reverse=True
-    )
-
-    # Nobel section
-    nobel_section = ""
-    if rosetta.get('nobel_connection'):
-        nobel_section = f"""
-### 🏆 Nobel Prize Connection
-
-> **Rosetta@home** — Contributing to David Baker's Nobel Prize-winning research
-
-I joined Rosetta@home on **{rosetta['member_since']}** — **{rosetta.get('years_before_nobel', 6.4)} years before** David Baker received the **2024 Nobel Prize in Chemistry** for computational protein design.
-
-- **{rosetta.get('credits', 0):,}** credits earned
-- **{rosetta.get('days_active', 0):,}** days contributing ({rosetta.get('years_active', 0)} years)
-
-[View Rosetta Profile]({rosetta.get('profile_url', '#')})
-
----
-
-"""
-
-    content = f"""## Live Statistics
-
-Updated: {current_stats['generated_at']}
-
-### Overview
-
-- **{current_stats['totals']['boinc_projects']}** active BOINC projects
-- **{current_stats['totals']['boinc_credits']:,}** total BOINC credits
-- **{current_stats['totals']['total_years']}** years contributing
-
----
-{nobel_section}
-### Folding@home
-
-- {fah.get('score', 0):,} points
-- {fah.get('work_units', 0)} work units
-
-[View Profile]({fah.get('profile_url', '#')})
-
----
-
-### Other BOINC Projects
-
-| Project | Credits | Member Since |
-|---------|--------:|--------------|
-"""
-
-    for key, proj in sorted_projects:
-        credits_str = f"{proj.get('credits', 0):,}" if proj.get('credits', 0) > 0 else "—"
-        content += f"| [{proj['name']}]({proj.get('profile_url', proj['url'])}) | {credits_str} | {proj['member_since']} |\n"
-
-    content += f"""
----
-
-### BOINC Combined
-
-![BOINC Stats]({current_stats['boinc_combined']['signature_url']})
-
-[View Full Profile]({current_stats['boinc_combined']['profile_url']})
-
----
-
-Data fetched automatically via GitHub Actions.
-
-"""
-
-    start_marker = "<!-- LIVE_STATS_START -->"
-    end_marker = "<!-- LIVE_STATS_END -->"
-
-    readme_file = 'README.md'
-
-    if os.path.exists(readme_file):
-        with open(readme_file, 'r', encoding='utf-8') as f:
-            existing = f.read()
-
-        if start_marker in existing and end_marker in existing:
-            before = existing.split(start_marker)[0]
-            after = existing.split(end_marker)[1]
-            new_content = before + start_marker + "\n" + content + end_marker + after
-
-            with open(readme_file, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-
-            print(f"✓ Updated README.md")
-        else:
-            print("  README markers not found, skipping update")
-    else:
-        print("  README.md not found, skipping update")
+def save_readme(content: str):
+    """Save generated README"""
+    with open('README.md', 'w', encoding='utf-8') as f:
+        f.write(content)
+    print("✓ Saved README.md")
 
 
 async def main():
     print("=" * 60)
     print("Scientific Computing Stats Fetcher")
-    print("With Historical Tracking & Trends")
     print("=" * 60)
     print()
 
-    # Load config
     config = load_config()
 
     if os.environ.get('FAH_USERNAME'):
         config['profiles']['folding_at_home']['username'] = os.environ['FAH_USERNAME']
 
-    # Load existing stats for history
     existing_stats = load_existing_stats()
-
-    # Fetch all data concurrently
     fah_data, boinc_data = await fetch_all_projects(config)
 
     print()
 
-    # Build current stats
     current_stats = build_current_stats(config, fah_data, boinc_data)
-
-    # Create history entry
     history_entry = create_history_entry(current_stats)
-
-    # Update history
     history = update_history(existing_stats, history_entry)
-
-    # Calculate trends
     trends = calculate_trends(history, current_stats)
 
-    # Assemble final stats object
     final_stats = {
         'current': current_stats,
         'history': history,
         'trends': trends
     }
 
-    # Save and update
     save_stats(final_stats)
-    update_readme(current_stats)
 
-    # Print summary
+    readme_content = generate_readme(config, current_stats)
+    save_readme(readme_content)
+
+    # Summary
     print()
     print("=" * 60)
     print("Summary")
@@ -596,24 +583,6 @@ async def main():
 
     if current_stats.get('folding_at_home'):
         print(f"  Folding@home: {current_stats['folding_at_home']['score']:,} points")
-
-    print()
-    print("Trends:")
-    print(f"  History data points: {trends.get('data_points', 0)}")
-
-    if 'boinc' in trends:
-        if 'avg_per_day_30d' in trends['boinc']:
-            print(f"  BOINC avg/day (30d): {trends['boinc']['avg_per_day_30d']:,} credits")
-        if 'last_30_days' in trends['boinc']:
-            print(f"  BOINC last 30 days: +{trends['boinc']['last_30_days']:,} credits")
-
-    if trends.get('milestones'):
-        next_milestone = trends['milestones'][0]
-        print(f"  Next milestone: {next_milestone['target_formatted']} in ~{next_milestone['days_to_reach']} days")
-
-    if trends.get('most_active_projects'):
-        top = trends['most_active_projects'][0]
-        print(f"  Most active project: {top['name']} (+{top['gain_30d']:,} last 30d)")
 
 
 if __name__ == "__main__":
