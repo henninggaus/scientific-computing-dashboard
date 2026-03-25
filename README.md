@@ -6,10 +6,10 @@ I contribute idle computing power to distributed research projects — protein f
 
 ## Statistics
 
-*Updated: 2026-03-24 00:27 UTC*
+*Updated: 2026-03-25 00:31 UTC*
 
 - **13** active BOINC projects
-- **37,754,942** total BOINC credits
+- **37,805,029** total BOINC credits
 - **7.8** years contributing
 
 ---
@@ -19,7 +19,7 @@ I contribute idle computing power to distributed research projects — protein f
 I joined [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572) in 2018-06 — about 6.4 years before David Baker received the 2024 Nobel Prize in Chemistry for computational protein design.
 
 - **1,064,227** credits
-- **2,851** days contributing
+- **2,852** days contributing
 
 ---
 
@@ -38,7 +38,7 @@ I joined [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=
 |---------|--------:|-------|
 | [Collatz Conjecture](https://boinc.thesonntags.com/collatz) | 23,165,561 | 2019-08 |
 | [GPUGRID](https://www.gpugrid.net/gpugrid/show_user.php?userid=543812) | 6,450,000 | 2019-04 |
-| [SiDock@home](https://www.sidock.si/sidock/show_user.php?userid=13871) | 3,261,163 | 2025-04 |
+| [SiDock@home](https://www.sidock.si/sidock/show_user.php?userid=13871) | 3,311,250 | 2025-04 |
 | [Amicable Numbers](https://sech.me/boinc/Amicable/show_user.php?userid=22852) | 2,351,650 | 2019-10 |
 | [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572) | 1,064,227 | 2018-06 |
 | [Climateprediction.net](https://www.cpdn.org) | 898,928 | 2019-08 |
