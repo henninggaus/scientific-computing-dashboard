@@ -6,7 +6,7 @@ I contribute idle computing power to distributed research projects — protein f
 
 ## Statistics
 
-*Updated: 2026-05-08 00:45 UTC*
+*Updated: 2026-05-09 00:45 UTC*
 
 - **12** active BOINC projects
 - **34,715,090** total BOINC credits
@@ -19,7 +19,7 @@ I contribute idle computing power to distributed research projects — protein f
 I joined [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572) in 2018-06 — about 6.4 years before David Baker received the 2024 Nobel Prize in Chemistry for computational protein design.
 
 - **1,285,538** credits
-- **2,896** days contributing
+- **2,897** days contributing
 
 ---
 
