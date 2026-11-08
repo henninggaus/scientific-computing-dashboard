@@ -1,7 +1,7 @@
 {
   "current": {
-    "last_updated": "2026-11-07T04:51:06.225852",
-    "generated_at": "2026-11-07 04:51 UTC",
+    "last_updated": "2026-11-08T04:42:10.459437",
+    "generated_at": "2026-11-08 04:42 UTC",
     "projects": {
       "rosetta": {
         "name": "Rosetta@home",
@@ -9,7 +9,7 @@
         "description": "Protein structure prediction",
         "url": "https://boinc.bakerlab.org/rosetta",
         "member_since": "2018-06-03",
-        "days_active": 3079,
+        "days_active": 3080,
         "years_active": 8.4,
         "user_id": "2003572",
         "profile_url": "https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572",
@@ -26,7 +26,7 @@
         "description": "Molecular dynamics simulations",
         "url": "https://www.gpugrid.net/gpugrid",
         "member_since": "2019-04-20",
-        "days_active": 2758,
+        "days_active": 2759,
         "years_active": 7.6,
         "user_id": "543812",
         "profile_url": "https://www.gpugrid.net/gpugrid/show_user.php?userid=543812",
@@ -40,7 +40,7 @@
         "description": "Drug discovery for SARS-CoV-2",
         "url": "https://www.sidock.si/sidock",
         "member_since": "2025-04-10",
-        "days_active": 576,
+        "days_active": 577,
         "years_active": 1.6,
         "user_id": "13871",
         "profile_url": "https://www.sidock.si/sidock/show_user.php?userid=13871",
@@ -54,7 +54,7 @@
         "description": "Mathematical research (ECM, Siever)",
         "url": "https://www.rechenkraft.net/yoyo",
         "member_since": "2018-08-11",
-        "days_active": 3010,
+        "days_active": 3011,
         "years_active": 8.2,
         "user_id": "319246",
         "profile_url": "https://www.rechenkraft.net/yoyo/show_user.php?userid=319246",
@@ -68,7 +68,7 @@
         "description": "Finding amicable number pairs",
         "url": "https://sech.me/boinc/Amicable",
         "member_since": "2019-10-05",
-        "days_active": 2590,
+        "days_active": 2591,
         "years_active": 7.1,
         "user_id": "22852",
         "profile_url": "https://sech.me/boinc/Amicable/show_user.php?userid=22852",
@@ -81,7 +81,7 @@
         "description": "Discovering mathematical formulas",
         "url": "https://rnma.xyz/boinc",
         "member_since": "2025-03-29",
-        "days_active": 588,
+        "days_active": 589,
         "years_active": 1.6,
         "user_id": "2554988",
         "profile_url": "https://rnma.xyz/boinc/show_user.php?userid=2554988",
@@ -95,7 +95,7 @@
         "description": "Climate modeling",
         "url": "https://www.cpdn.org",
         "member_since": "2019-08-05",
-        "days_active": 2651,
+        "days_active": 2652,
         "years_active": 7.3,
         "credits": 898928,
         "live": false
@@ -106,7 +106,7 @@
         "description": "Searching for large prime numbers",
         "url": "https://www.primegrid.com",
         "member_since": "2019-09-12",
-        "days_active": 2613,
+        "days_active": 2614,
         "years_active": 7.2,
         "user_id": "1188549",
         "profile_url": "https://www.primegrid.com/show_user.php?userid=1188549",
@@ -120,7 +120,7 @@
         "description": "Modeling the Milky Way galaxy",
         "url": "https://milkyway.cs.rpi.edu/milkyway",
         "member_since": "2019-10-05",
-        "days_active": 2590,
+        "days_active": 2591,
         "years_active": 7.1,
         "user_id": "1365700",
         "profile_url": "https://milkyway.cs.rpi.edu/milkyway/show_user.php?userid=1365700",
@@ -134,12 +134,13 @@
         "description": "Asteroid shape and spin modeling",
         "url": "https://asteroidsathome.net/boinc",
         "member_since": "2018-08-11",
-        "days_active": 3010,
+        "days_active": 3011,
         "years_active": 8.2,
         "user_id": "403666",
         "profile_url": "https://asteroidsathome.net/boinc/show_user.php?userid=403666",
-        "credits": 0,
-        "live": false
+        "credits": 75840,
+        "avg_credit": 0.09,
+        "live": true
       },
       "collatz": {
         "name": "Collatz Conjecture",
@@ -147,7 +148,7 @@
         "description": "Testing the Collatz conjecture",
         "url": "https://boinc.thesonntags.com/collatz",
         "member_since": "2019-08-05",
-        "days_active": 2651,
+        "days_active": 2652,
         "years_active": 7.3,
         "credits": 23165561,
         "live": false
@@ -158,7 +159,7 @@
         "description": "Search for extraterrestrial intelligence",
         "url": "https://setiathome.berkeley.edu",
         "member_since": "2018-08-11",
-        "days_active": 3010,
+        "days_active": 3011,
         "years_active": 8.2,
         "credits": 21928,
         "live": false
@@ -169,7 +170,7 @@
         "description": "Cosmological models of the universe",
         "url": "https://www.cosmologyathome.org",
         "member_since": "2019-08-05",
-        "days_active": 2651,
+        "days_active": 2652,
         "years_active": 7.3,
         "credits": 36,
         "live": false
@@ -201,21 +202,21 @@
         "name": "Astronomy & Space",
         "icon": "\ud83d\udd2d",
         "color": "#8b5cf6",
-        "total_credits": 146075,
+        "total_credits": 221915,
         "project_count": 4
       }
     },
     "totals": {
-      "boinc_credits": 35598850,
-      "boinc_projects": 11,
+      "boinc_credits": 35674690,
+      "boinc_projects": 12,
       "earliest_join": "2018-06-03",
-      "total_days": 3079,
+      "total_days": 3080,
       "total_years": 8.4
     },
     "folding_at_home": {
       "score": 7908286,
       "work_units": 149,
-      "rank": 167537,
+      "rank": 167553,
       "total_users": 3021483,
       "username": "HenningSarrus",
       "profile_url": "https://stats.foldingathome.org/donor/HenningSarrus"
@@ -5877,49 +5878,69 @@
         "seti": 21928,
         "cosmology": 36
       }
+    },
+    {
+      "date": "2026-11-08",
+      "boinc_credits": 35674690,
+      "fah_score": 7908286,
+      "fah_wus": 149,
+      "projects": {
+        "rosetta": 1285538,
+        "gpugrid": 6450000,
+        "sidock": 3311250,
+        "yoyo": 101050,
+        "ramanujan": 16011,
+        "climateprediction": 898928,
+        "primegrid": 224437,
+        "milkyway": 124111,
+        "asteroids": 75840,
+        "collatz": 23165561,
+        "seti": 21928,
+        "cosmology": 36
+      }
     }
   ],
   "trends": {
-    "data_points": 285,
+    "data_points": 286,
     "history_start": "2026-01-27",
-    "history_end": "2026-11-07",
+    "history_end": "2026-11-08",
     "boinc": {
-      "last_7_days": 3235410,
-      "avg_per_day_7d": 462201,
-      "last_30_days": 3359521,
-      "avg_per_day_30d": 111984,
-      "last_90_days": -2427490,
-      "avg_per_day_90d": -26972,
-      "avg_per_day_alltime": -6044
+      "last_7_days": 3387090,
+      "avg_per_day_7d": 483870,
+      "last_30_days": 3311250,
+      "avg_per_day_30d": 110375,
+      "last_90_days": -2351650,
+      "avg_per_day_90d": -26129,
+      "avg_per_day_alltime": -5756
     },
     "milestones": [
       {
         "target": 40000000,
         "target_formatted": "40,000,000",
-        "remaining": 4401150,
+        "remaining": 4325310,
         "days_to_reach": 39,
-        "estimated_date": "2026-12-16"
+        "estimated_date": "2026-12-17"
       },
       {
         "target": 50000000,
         "target_formatted": "50,000,000",
-        "remaining": 14401150,
-        "days_to_reach": 128,
-        "estimated_date": "2027-03-15"
+        "remaining": 14325310,
+        "days_to_reach": 129,
+        "estimated_date": "2027-03-17"
       },
       {
         "target": 75000000,
         "target_formatted": "75,000,000",
-        "remaining": 39401150,
-        "days_to_reach": 351,
-        "estimated_date": "2027-10-24"
+        "remaining": 39325310,
+        "days_to_reach": 356,
+        "estimated_date": "2027-10-30"
       },
       {
         "target": 100000000,
         "target_formatted": "100,000,000",
-        "remaining": 64401150,
-        "days_to_reach": 575,
-        "estimated_date": "2028-06-04"
+        "remaining": 64325310,
+        "days_to_reach": 582,
+        "estimated_date": "2028-06-12"
       }
     ],
     "fah": {
