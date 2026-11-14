@@ -6,10 +6,10 @@ I contribute idle computing power to distributed research projects — protein f
 
 ## Statistics
 
-*Updated: 2026-11-13 05:19 UTC*
+*Updated: 2026-11-14 05:09 UTC*
 
-- **12** active BOINC projects
-- **35,674,690** total BOINC credits
+- **11** active BOINC projects
+- **35,598,850** total BOINC credits
 - **8.4** years contributing
 
 ---
@@ -19,14 +19,14 @@ I contribute idle computing power to distributed research projects — protein f
 I joined [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=2003572) in 2018-06 — about 6.4 years before David Baker received the 2024 Nobel Prize in Chemistry for computational protein design.
 
 - **1,285,538** credits
-- **3,085** days contributing
+- **3,086** days contributing
 
 ---
 
 ### Folding@home
 
-- 0 points
-- 0 work units
+- 7,908,286 points
+- 149 work units
 
 [Profile](https://stats.foldingathome.org/donor/HenningSarrus)
 
@@ -44,11 +44,11 @@ I joined [Rosetta@home](https://boinc.bakerlab.org/rosetta/show_user.php?userid=
 | [PrimeGrid](https://www.primegrid.com/show_user.php?userid=1188549) | 224,437 | 2019-09 |
 | [MilkyWay@home](https://milkyway.cs.rpi.edu/milkyway/show_user.php?userid=1365700) | 124,111 | 2019-10 |
 | [yoyo@home](https://www.rechenkraft.net/yoyo/show_user.php?userid=319246) | 101,050 | 2018-08 |
-| [Asteroids@home](https://asteroidsathome.net/boinc/show_user.php?userid=403666) | 75,840 | 2018-08 |
 | [SETI@home](https://setiathome.berkeley.edu) | 21,928 | 2018-08 |
 | [Ramanujan Machine](https://rnma.xyz/boinc/show_user.php?userid=2554988) | 16,011 | 2025-03 |
 | [Cosmology@Home](https://www.cosmologyathome.org) | 36 | 2019-08 |
 | [Amicable Numbers](https://sech.me/boinc/Amicable/show_user.php?userid=22852) | — | 2019-10 |
+| [Asteroids@home](https://asteroidsathome.net/boinc/show_user.php?userid=403666) | — | 2018-08 |
 
 ![BOINC Stats](https://boincstats.com/signature/-1/user/38537905500/sig.png)
 
